@@ -46,7 +46,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         {/* 메뉴 목록 */}
         <ul className="flex flex-col gap-6">
           {menuItems.map((item, index) => (
-            <li key={index} className="text-lg font-medium cursor-pointer hover:text-brand-start transition-colors">
+            <li key={index} className="text-lg font-bold cursor-pointer hover:text-brand-start transition-colors">
               {item}
             </li>
           ))}
