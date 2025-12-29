@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import emblemImg from "./assets/emblem.svg";
+import emblemImg from "./assets/kau.svg";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
