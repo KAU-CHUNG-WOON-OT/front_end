@@ -6,14 +6,3 @@
   --color-brand-end: #FFFDD1;
   --color-sidebar-bg: #E5F4FD;
 }
-
-/* 기본 스타일 설정 */
-@layer base {
-  body {
-    /* 정의한 색상으로 그라데이션 적용 */
-    background: linear-gradient(to bottom, var(--color-brand-start) 0%, var(--color-brand-end) 100%);
-    min-height: 100vh;
-    color: white;
-    margin: 0;
-  }
-}
