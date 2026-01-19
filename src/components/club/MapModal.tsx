@@ -57,7 +57,7 @@ const MapModal = ({ isOpen, onClose }: MapModalProps) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 transition-opacity duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300"
       onClick={onClose}
     >
       <div 

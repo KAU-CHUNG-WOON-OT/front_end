@@ -12,7 +12,7 @@ const CategoryList = ({ categories, selectedCategory, onSelect }: CategoryListPr
           key={cat}
           onClick={() => onSelect(cat)}
           className={`
-            px-8 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors
+            px-7 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors
             ${
               selectedCategory === cat
                 ? "bg-slate-800 text-white"
