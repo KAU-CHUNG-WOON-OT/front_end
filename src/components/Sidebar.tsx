@@ -14,7 +14,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     { label: "타임테이블", path: "/timetable" },
     { label: "동아리 정보", path: "/club" },
     { label: "리조트 정보", path: "/resort" },
-    { label: "긴급연락", path: "/emergency" },
+    { label: "긴급연락망", path: "/emergency" },
     { label: "만든이", path: "/makers" },
   ];
 

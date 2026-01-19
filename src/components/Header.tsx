@@ -16,7 +16,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
       case "/timetable": return "타임테이블";
       case "/club": return "동아리 정보";
       case "/resort": return "리조트 정보";
-      case "/emergency": return "긴급연락";
+      case "/emergency": return "긴급연락망";
       case "/makers": return "만든이";
       case "/": return ""; // 홈 화면에서는 제목 안 띄움
       default: return "";

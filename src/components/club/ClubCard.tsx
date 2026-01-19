@@ -1,7 +1,11 @@
-interface ClubData {
+import logoImg from "../../assets/logo.svg";
+
+export interface ClubData {
   id: number;
   name: string;
-  location: string;
+  category: string;
+  room: string;
+  booth: string;
   description: string;
 }
 
@@ -12,25 +16,25 @@ interface ClubCardProps {
 
 const ClubCard = ({ club, onClick }: ClubCardProps) => {
   return (
-    <div
-      className="bg-white rounded-[20px] p-5 shadow-sm flex flex-col items-center justify-center gap-3 cursor-pointer hover:shadow-md transition-shadow"
+    <div 
       onClick={onClick}
+      className="bg-white rounded-[20px] p-4 shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-transparent transition-all cursor-pointer active:scale-95 flex flex-col items-center justify-center text-center aspect-square"
     >
-      {/* 엠블럼 이미지로 교체 (public 폴더 경로 사용) */}
-      <img 
-        src="/emblem.svg" 
-        alt={club.name} 
-        className="w-12 h-12 object-contain mb-1" 
-      />
-      
-      <div className="text-center">
-        <h4 className="font-bold text-gray-900 text-base leading-tight mb-1">
-          {club.name}
-        </h4>
-        <p className="text-xs text-gray-500 font-medium">
-          부스위치: {club.location}
-        </p>
+      <div className="w-10 h-10 mb-2">
+        <img 
+          src={logoImg} 
+          alt={`${club.name} 로고`} 
+          className="w-full h-full object-contain brightness-0 opacity-90" 
+        />
       </div>
+      
+      <h3 className="font-bold text-gray-900 text-sm leading-tight break-keep mb-0.5">
+        {club.name}
+      </h3>
+      
+      <p className="text-xs font-medium text-gray-500">
+        {club.booth}
+      </p>
     </div>
   );
 };
