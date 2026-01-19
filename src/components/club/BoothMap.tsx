@@ -1,18 +1,23 @@
-import { FiMapPin } from "react-icons/fi";
+interface BoothMapProps {
+  onClick: () => void;
+}
 
-const BoothMap = () => {
+const BoothMap = ({ onClick }: BoothMapProps) => {
   return (
-    <div className="bg-white rounded-[20px] p-5 shadow-sm mb-6 flex flex-col items-center">
-      <h3 className="text-sm font-bold text-gray-600 mb-3 self-start">동아리 부스 맵</h3>
+    <div 
+      className="bg-white rounded-[20px] p-5 shadow-sm mb-6 flex flex-col items-center cursor-pointer transition-transform active:scale-95"
+      onClick={onClick}
+    >
+      <h3 className="text-s font-bold text-gray-800 mb-4">동아리 부스 맵</h3>
       
-      {/* 지도 이미지 영역 (나중에 이미지로 교체) */}
-      <div className="w-full h-40 bg-gray-100 rounded-xl mb-4 flex items-center justify-center text-gray-400 text-xs">
-        (지도 이미지)
+      {/* 지도 이미지 영역 */}
+      <div className="w-full aspect-[4/3] bg-gray-50 rounded-xl mb-4 overflow-hidden flex items-center justify-center border border-gray-100">
+        <img src="/map.svg" alt="지도 미리보기" className="w-full h-full object-contain p-2" />
       </div>
 
-      <div className="flex items-center gap-1 text-xs text-gray-500 font-medium">
-        <FiMapPin className="text-red-400" />
-        <span>학생회관 앞 잔디광장 | 10:30~16:00</span>
+      {/* 위치 정보 */}
+      <div className="flex items-center gap-1.5 text-sm text-gray-500 font-medium">
+        <span>📍 OO홀 | 0월 00일 10:30~16:00</span>
       </div>
     </div>
   );
