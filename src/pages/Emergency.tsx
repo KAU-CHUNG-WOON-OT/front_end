@@ -3,12 +3,6 @@ import { FiAlertTriangle } from "react-icons/fi";
 const Emergency = () => {
   return (
     <div className="flex flex-col h-full w-full px-7 pt-6">
-      
-      {/* ✨ 피그마 디자인 색상 완벽 반영 
-        - 시작 색상: #FF001F (투명도 100%)
-        - 끝 색상: #FF001F (투명도 70% -> rgba(255, 0, 31, 0.7))
-        - 방향: 왼쪽 위 -> 오른쪽 아래 (to bottom right)
-      */}
       <div 
         className="w-full rounded-[20px] p-8 shadow-[0_4px_15px_rgba(255,0,31,0.25)] text-white"
         style={{
