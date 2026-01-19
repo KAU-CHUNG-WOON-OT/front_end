@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { FiMapPin } from "react-icons/fi";
-
 const Resort = () => {
   const [activeTab, setActiveTab] = useState("전체");
 
