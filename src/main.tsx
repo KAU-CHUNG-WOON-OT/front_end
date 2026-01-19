@@ -31,6 +31,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/makers" element={<Makers />} />   {/* 만든이 */}
         </Routes>
       </Layout>
+      
     </BrowserRouter>
   </StrictMode>,
 )
