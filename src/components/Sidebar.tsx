@@ -30,7 +30,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
 
       <aside
         className={`
-          fixed top-0 left-0 z-50 h-full w-[215px] bg-sidebar-bg p-6 shadow-lg text-gray-800
+          fixed top-0 left-0 z-50 h-full w-[215px] rounded-r-[16px] bg-sidebar-bg p-6 shadow-lg text-gray-800
           transform transition-transform duration-300 ease-in-out
           flex flex-col justify-between
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
