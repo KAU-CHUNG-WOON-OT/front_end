@@ -8,7 +8,7 @@ export interface ContactInfo {
 }
 
 interface ContactCardProps {
-  contacts: ContactInfo[]; // ✨ 배열로 받도록 수정
+  contacts: ContactInfo[]; 
 }
 
 const ContactCard = ({ contacts }: ContactCardProps) => {
@@ -41,8 +41,7 @@ const ContactCard = ({ contacts }: ContactCardProps) => {
               <span className="text-xs font-bold">전화</span>
             </a>
           </div>
-
-          {/* 마지막 항목이 아니면 구분선 표시 */}
+ 
           {index < contacts.length - 1 && (
             <div className="h-[1px] bg-gray-50 my-3 w-full" />
           )}
