@@ -12,6 +12,7 @@ import Club from './pages/Club.tsx'
 import ClubDetail from './pages/ClubDetail.tsx'
 import Resort from './pages/Resort.tsx'
 import Emergency from './pages/Emergency.tsx'
+import EmergencyDetail from './pages/EmergencyDetail.tsx'
 import Makers from './pages/Makers.tsx'
 
 createRoot(document.getElementById('root')!).render(
@@ -28,7 +29,10 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/club" element={<Club />} />       {/* 동아리 정보 */}
           <Route path="/club/:id" element={<ClubDetail />} /> {/* 동아리 상세 */}
           <Route path="/resort" element={<Resort />} />   {/* 리조트 정보 */}
-          <Route path="/emergency" element={<Emergency />} /> {/* 긴급연락 */}
+          
+          <Route path="/emergency" element={<Emergency />} /> {/* 긴급연락 메인 */}
+          <Route path="/emergency/:id" element={<EmergencyDetail />} /> {/* 긴급연락 상세 */}
+          
           <Route path="/makers" element={<Makers />} />   {/* 만든이 */}
         </Routes>
       </Layout>

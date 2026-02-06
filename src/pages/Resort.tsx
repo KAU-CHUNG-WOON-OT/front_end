@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 const Resort = () => {
   const [activeTab, setActiveTab] = useState("전체");
 
@@ -21,19 +22,21 @@ const Resort = () => {
     ? resorts
     : resorts.filter((r) => r.name === activeTab);
 
+  const tabs = ["전체", "함백동", "다산동"];
+
   return (
     <div className="flex flex-col h-full w-full">
       
-      <div className="flex-none px-7 pt-6 pb-4 z-20 bg-transparent">
-        <div className="flex gap-3">
-          {["전체", "함백동", "다산동"].map((tab) => (
+      <div className="flex-none pt-[8px] pb-4">
+        <div className="mx-auto flex max-w-[402px] justify-start gap-[10px] px-6">
+          {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-full text-sm font-bold transition-all shadow-sm ${
+              className={`h-[35px] px-4 rounded-[25px] text-[14px] font-bold leading-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-colors ${
                 activeTab === tab
-                  ? "bg-[#2F3E4E] text-white" 
-                  : "bg-white text-gray-500 hover:bg-gray-50"
+                  ? "bg-[#252b4f] text-white" 
+                  : "bg-white text-[#252b4f]"
               }`}
             >
               {tab}
@@ -53,12 +56,11 @@ const Resort = () => {
           {filteredResorts.map((item) => (
             <div 
               key={item.id} 
-              className="bg-white/80 backdrop-blur-sm rounded-[20px] p-6 shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-white flex flex-col items-center"
+              className="bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(214,235,255,0.65)_100%)] rounded-[20px] p-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] flex flex-col items-center border border-transparent"
             >
-              <h3 className="text-gray-800 mb-5 text-base">{item.name}</h3>
+              <h3 className="text-[#3a3f4b] mb-5 text-base font-bold">{item.name}</h3>
 
-              {/* 지도 이미지 */}
-              <div className="w-full aspect-square rounded-2xl mb-5 flex items-center justify-center overflow-hidden shadow-inner border border-gray-50">
+              <div className="w-full aspect-square rounded-2xl mb-5 flex items-center justify-center overflow-hidden shadow-sm border border-white/50 bg-white">
                  <img 
                    src="/map.svg" 
                    alt={`${item.name} 지도`} 
@@ -66,8 +68,7 @@ const Resort = () => {
                  />
               </div>
 
-              {/* 하단 정보 */}
-              <div className="flex items-center  text-xs text-gray-600 font-medium bg-gray-50 px-3 py-1.5 rounded-lg">
+              <div className="flex items-center text-xs text-[#8a94a6] font-medium bg-white px-3 py-1.5 rounded-lg shadow-sm">
                  <span>{item.location} | {item.time}</span>
               </div>
             </div> 

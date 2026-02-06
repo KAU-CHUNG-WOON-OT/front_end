@@ -8,6 +8,7 @@ import emergency_icon from "./assets/phone_icon.svg";
 import notice_icon from "./assets/notice_icon.svg";
 import building_icon from "./assets/building_icon.svg";
 
+
 const menuItems = [
   {
     label: "공지",

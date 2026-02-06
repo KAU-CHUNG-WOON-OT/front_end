@@ -7,6 +7,9 @@ export interface ClubData {
   room: string;
   booth: string;
   description: string;
+  logo_img: string;
+  images: string[];
+  insta: string;
 }
 
 interface ClubCardProps {
@@ -18,23 +21,39 @@ const ClubCard = ({ club, onClick }: ClubCardProps) => {
   return (
     <div 
       onClick={onClick}
-      className="bg-white rounded-[20px] p-4 shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-transparent transition-all cursor-pointer active:scale-95 flex flex-col items-center justify-center text-center aspect-square"
+      className="rounded-[20px] p-4 border border-transparent transition-all cursor-pointer active:scale-95 flex flex-col items-center justify-center text-center aspect-square
+        bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(214,235,255,0.65)_100%)]
+        shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)]
+        hover:-translate-y-px"
     >
-      <div className="w-10 h-10 mb-2">
-        <img 
-          src={logoImg} 
-          alt={`${club.name} 로고`} 
-          className="w-full h-full object-contain brightness-0 opacity-90" 
-        />
+      {/* 1. 로고 영역 */}
+      <div className="w-16 h-16 mb-2 flex items-center justify-center overflow-hidden rounded-2xl">
+        {club.logo_img ? (
+           <img 
+             src={club.logo_img} 
+             alt={`${club.name} 로고`} 
+             className="w-full h-full object-cover" 
+           />
+        ) : (
+           <img 
+             src={logoImg} 
+             alt="기본 로고" 
+             className="w-full h-full object-contain brightness-0 opacity-90" 
+           />
+        )}
       </div>
       
-      <h3 className="font-bold text-gray-900 text-sm leading-tight break-keep mb-0.5">
+      {/* 2. 동아리명 */}
+      <h3 className="font-bold text-[#3a3f4b] text-sm leading-tight break-keep mb-0.5">
         {club.name}
       </h3>
       
-      <p className="text-xs font-medium text-gray-500">
-        {club.booth}
-      </p>
+      {/* 3. 부스 위치 */}
+      {club.booth !== "ㅁㅁㅁ" && (
+        <p className="text-xs font-medium text-[#8a94a6]">
+          {club.booth}
+        </p>
+      )}
     </div>
   );
 };
