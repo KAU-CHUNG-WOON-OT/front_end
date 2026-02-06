@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 const Resort = () => {
   const [activeTab, setActiveTab] = useState("전체");
 
@@ -21,19 +22,22 @@ const Resort = () => {
     ? resorts
     : resorts.filter((r) => r.name === activeTab);
 
+  const tabs = ["전체", "함백동", "다산동"];
+
   return (
     <div className="flex flex-col h-full w-full">
       
-      <div className="flex-none px-7 pt-6 pb-4 z-20 bg-transparent">
-        <div className="flex gap-3">
-          {["전체", "함백동", "다산동"].map((tab) => (
+      {/* 1. 카테고리 영역*/}
+      <div className="flex-none pt-[8px] pb-4">
+        <div className="mx-auto flex max-w-[402px] justify-start gap-[10px] px-6">
+          {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-full text-sm font-bold transition-all shadow-sm ${
+              className={`h-[35px] px-4 rounded-[25px] text-[14px] font-bold leading-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-colors ${
                 activeTab === tab
-                  ? "bg-[#2F3E4E] text-white" 
-                  : "bg-white text-gray-500 hover:bg-gray-50"
+                  ? "bg-[#252b4f] text-white" 
+                  : "bg-white text-[#252b4f]"
               }`}
             >
               {tab}
@@ -42,6 +46,7 @@ const Resort = () => {
         </div>
       </div>
 
+      {/* 2. 리스트 영역 */}
       <div 
         className="flex-1 overflow-y-auto relative no-scrollbar"
         style={{
@@ -67,7 +72,7 @@ const Resort = () => {
               </div>
 
               {/* 하단 정보 */}
-              <div className="flex items-center  text-xs text-gray-600 font-medium bg-gray-50 px-3 py-1.5 rounded-lg">
+              <div className="flex items-center text-xs text-gray-600 font-medium bg-gray-50 px-3 py-1.5 rounded-lg">
                  <span>{item.location} | {item.time}</span>
               </div>
             </div> 
