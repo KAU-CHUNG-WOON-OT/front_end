@@ -1,5 +1,5 @@
 import { FiMenu } from "react-icons/fi";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logoImg from "../assets/logo.svg";
 
 interface HeaderProps {
@@ -34,11 +34,13 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
         {currentTitle}
       </h1>
 
-      <img 
-        src={logoImg} 
-        alt="청춘 로고" 
-        className="h-6 w-auto brightness-0 z-10" 
-      />
+      <Link to="/" aria-label="홈으로 이동" className="z-10">
+        <img
+          src={logoImg}
+          alt="청춘 로고"
+          className="h-6 w-auto cursor-pointer brightness-0"
+        />
+      </Link>
     </header>
   );
 };
