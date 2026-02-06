@@ -10,22 +10,19 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
   const location = useLocation(); 
 
   const getPageTitle = (path: string) => {
-    switch (path) {
-      case "/notice": return "공지사항";
-      case "/timetable": return "타임테이블";
-      case "/club": return "동아리 정보";
-      case "/resort": return "리조트 정보";
-      case "/emergency": return "긴급연락망";
-      case "/makers": return "만든이";
-      case "/": return ""; 
-      default: return "";
-    }
+    if (path === "/notice") return "공지사항";
+    if (path === "/timetable") return "타임테이블";
+    if (path.startsWith("/club")) return "동아리 정보";
+    if (path === "/resort") return "리조트 정보";
+    if (path.startsWith("/emergency")) return "긴급연락망";
+    if (path === "/makers") return "만든이";
+    return "";
   };
 
   const currentTitle = getPageTitle(location.pathname);
 
   return (
-    <header className="relative flex justify-between items-center p-6 z-50">
+    <header className="relative flex justify-between items-center p-6 z-50 bg-white">
       <button 
         onClick={onOpenSidebar} 
         className="flex items-center justify-center p-0 bg-transparent border-none cursor-pointer z-10"
