@@ -7,9 +7,8 @@ interface HeaderProps {
 }
 
 const Header = ({ onOpenSidebar }: HeaderProps) => {
-  const location = useLocation(); // 현재 위치 정보 가져오기
+  const location = useLocation(); 
 
-  // 주소(path)에 따라 보여줄 제목 결정하는 함수
   const getPageTitle = (path: string) => {
     switch (path) {
       case "/notice": return "공지사항";
@@ -18,7 +17,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
       case "/resort": return "리조트 정보";
       case "/emergency": return "긴급연락망";
       case "/makers": return "만든이";
-      case "/": return ""; // 홈 화면에서는 제목 안 띄움
+      case "/": return ""; 
       default: return "";
     }
   };
