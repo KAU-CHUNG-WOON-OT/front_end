@@ -39,7 +39,7 @@ const TimeTable = () => {
   }, [selectedItem]);
 
   return (
-    <div className="flex-1 overflow-y-auto pb-[80px] pt-[70px]">
+    <div className="flex-1 overflow-y-auto pb-[80px] pt-[10px]">
       <div className="mx-auto flex max-w-[402px] flex-col gap-[20px] px-[17px] text-black">
         <div className="flex gap-[10px]">
           {filterOptions.map((option) => {
@@ -154,7 +154,7 @@ const TimeTable = () => {
             aria-modal="true"
           >
             <div
-              className="relative z-10 flex h-[142px] flex-col gap-[4px] rounded-b-[16px] px-[16px] py-[16px]"
+              className="relative z-10 flex h-[142px] flex-col gap-[4px] px-[16px] py-[16px]"
               style={{  
                 background:
                   activeDetail.day.id === "day1"
