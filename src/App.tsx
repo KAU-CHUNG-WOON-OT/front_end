@@ -6,6 +6,7 @@ import club_icon from "./assets/people_icon.svg";
 import emergency_icon from "./assets/phone_icon.svg";
 import makers_icon from "./assets/notice_icon.svg";
 
+
 const menuItems = [
   {
     label: "공지",
