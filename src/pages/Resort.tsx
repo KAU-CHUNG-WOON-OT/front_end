@@ -1,20 +1,25 @@
 import { useState } from "react";
+import MapModal from "../components/resort/MapModal";
 
 const Resort = () => {
   const [activeTab, setActiveTab] = useState("전체");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMapImage, setSelectedMapImage] = useState("");
 
   const resorts = [
     { 
       id: 1, 
       name: "함백동", 
       location: "📍 OO홀 ", 
-      time: "0월 00일 10:30~16:00" 
+      time: "0월 00일 10:30~16:00",
+      mapImage: "/map.svg" 
     },
     { 
       id: 2, 
       name: "다산동", 
       location: "📍 OO홀 ", 
-      time: "0월 00일 10:30~16:00" 
+      time: "0월 00일 10:30~16:00",
+      mapImage: "/map.svg" 
     },
   ];
 
@@ -23,6 +28,11 @@ const Resort = () => {
     : resorts.filter((r) => r.name === activeTab);
 
   const tabs = ["전체", "함백동", "다산동"];
+
+  const handleMapClick = (imageSrc: string) => {
+    setSelectedMapImage(imageSrc);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="flex flex-col h-full w-full">
@@ -60,21 +70,30 @@ const Resort = () => {
             >
               <h3 className="text-[#3a3f4b] mb-5 text-base font-bold">{item.name}</h3>
 
-              <div className="w-full aspect-square rounded-2xl mb-5 flex items-center justify-center overflow-hidden shadow-sm border border-white/50 bg-white">
+              <div 
+                className="w-full aspect-square rounded-2xl mb-5 flex items-center justify-center overflow-hidden shadow-sm border border-white/50 bg-white cursor-pointer active:scale-95 transition-transform duration-200"
+                onClick={() => handleMapClick(item.mapImage)}
+              >
                  <img 
-                   src="/map.svg" 
+                   src={item.mapImage} 
                    alt={`${item.name} 지도`} 
                    className="w-full h-full object-contain p-6 hover:scale-105 transition-transform duration-300" 
                  />
               </div>
 
-              <div className="flex items-center text-xs text-[#8a94a6] font-medium bg-white px-3 py-1.5 rounded-lg shadow-sm">
+              <div className="flex items-center text-xs text-[#8a94a6] font-medium">
                  <span>{item.location} | {item.time}</span>
               </div>
             </div> 
           ))}
         </div>
       </div>
+
+      <MapModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        imageSrc={selectedMapImage}
+      />
 
     </div>
   );
