@@ -22,7 +22,6 @@ const EmergencyDetail = () => {
         >
           <FiChevronLeft className="text-2xl" />
         </button>
-
         <h2 className="text-lg font-bold text-gray-900">{college.name}</h2>
       </div>
 
@@ -41,14 +40,17 @@ const EmergencyDetail = () => {
             college.majors.map((major, index) => (
               <div
                 key={index}
-                className="shrink-0 rounded-[20px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.08)] bg-white border border-transparent"
+                className="shrink-0 rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] bg-white/60 backdrop-blur-md border border-white/40"
               >
-                <div className="bg-[#FFF4E6] px-5 py-4 border-b border-[#FFF4E6]">
-                  <span className="text-[15px] font-bold text-gray-800">
+                {/* (1) 학과 헤더 */}
+                <div className="bg-[#FFF4E6] px-6 py-4 border-b border-[#FFD6A8]">
+                  <span className="text-[16px] font-bold text-gray-800">
                     {major.name}
                   </span>
                 </div>
-                <div className="p-5 bg-white">
+
+                {/* (2) 연락처 리스트 영역 */}
+                <div className="px-2 py-4 flex flex-col gap-3">
                   <ContactCard contacts={major.contacts} />
                 </div>
               </div>
