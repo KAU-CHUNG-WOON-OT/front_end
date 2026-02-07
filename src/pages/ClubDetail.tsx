@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FiChevronLeft } from "react-icons/fi";
 import { clubs } from "../data/clubs";
-import logoImg from "../assets/logo.svg";
 
 const ClubDetail = () => {
   const { id } = useParams();

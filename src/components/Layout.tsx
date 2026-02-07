@@ -25,6 +25,7 @@ const Layout = ({ children }: LayoutProps) => {
   const isHome = location.pathname === "/";
   const isHomeOnboarding = isHome && isOnboardingActive;
 
+  // Footer가 필요한 페이지인지 확인 (Club, Notice 등은 Footer가 없으므로 false)
   const shouldShowFooter =
     location.pathname === "/makers" ||
     (isHome && !isOnboardingActive);
@@ -36,6 +37,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
 
         <div className="relative flex flex-1 flex-col overflow-hidden">
+          {/* 배경 그라데이션 원 */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute left-[60%] top-[5%] w-[60vw] aspect-square rounded-full bg-[#87CEEB] opacity-60 blur-2xl"
@@ -49,11 +51,17 @@ const Layout = ({ children }: LayoutProps) => {
             {isHomeOnboarding ? (
               children
             ) : (
-              <div className="flex-1 overflow-y-auto">
-                <div className="flex min-h-full flex-col">
-                  <div className="flex-1">{children}</div>
-                  {shouldShowFooter && <Footer />}
-                </div>
+              <div 
+                className={`flex-1 ${shouldShowFooter ? "overflow-y-auto" : "overflow-hidden flex flex-col"}`}
+              >
+                {shouldShowFooter ? (
+                  <div className="flex min-h-full flex-col">
+                    <div className="flex-1">{children}</div>
+                    <Footer />
+                  </div>
+                ) : (
+                  children
+                )}
               </div>
             )}
           </div>

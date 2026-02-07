@@ -22,7 +22,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
   const currentTitle = getPageTitle(location.pathname);
 
   return (
-    <header className="relative flex justify-between items-center p-6 z-50 bg-white">
+    <header className="relative flex justify-between items-center p-6 z-50 bg-transparent">
       <button 
         onClick={onOpenSidebar} 
         className="flex items-center justify-center p-0 bg-transparent border-none cursor-pointer z-10"

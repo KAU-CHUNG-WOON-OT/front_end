@@ -8,43 +8,38 @@ export interface ContactInfo {
 }
 
 interface ContactCardProps {
-  contacts: ContactInfo[]; 
+  contacts: ContactInfo[];
 }
 
 const ContactCard = ({ contacts }: ContactCardProps) => {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col gap-3 w-full">
       {contacts.map((contact, index) => (
-        <div key={index} className="w-full">
-          
-          {/* 한 명의 정보 행 */}
-          <div className="flex items-center justify-between py-1">
-            <div className="flex flex-col">
-              <span className="text-[11px] text-gray-400 font-medium mb-0.5">
-                {contact.role}
+        <div
+          key={index}
+          className="w-full bg-white rounded-[10px] px-4 py-1 shadow-[0_2px_10px_rgba(0,0,0,0.03)] flex items-center justify-between"
+        >
+          <div className="flex flex-col">
+            <span className="text-[10px] text-gray-400 font-medium">
+              {contact.role}
+            </span>
+            <span className="text-[16px] font-bold text-gray-800 leading-tight">
+              {contact.name}
+            </span>
+            {contact.phone && (
+              <span className="text-[12px] text-gray-400">
+                {contact.phone}
               </span>
-              <span className="text-[15px] font-bold text-gray-800">
-                {contact.name}
-              </span>
-              {contact.phone && (
-                <span className="text-[11px] text-gray-400 mt-0.5">
-                  {contact.phone}
-                </span>
-              )}
-            </div>
-            
-            <a 
-              href={`tel:${contact.phone}`}
-              className="flex items-center gap-1.5 bg-[#2F80ED] text-white px-5 py-2 rounded-xl shadow-sm active:scale-95 transition-transform"
-            >
-              <FiPhone className="text-sm" />
-              <span className="text-xs font-bold">전화</span>
-            </a>
+            )}
           </div>
- 
-          {index < contacts.length - 1 && (
-            <div className="h-[1px] bg-gray-50 my-3 w-full" />
-          )}
+
+          <a
+            href={`tel:${contact.phone}`}
+            className="flex items-center gap-1.5 bg-[#0084FF] text-white px-3.5 py-2 rounded-[12px] shadow-sm active:scale-95 transition-transform"
+          >
+            <FiPhone className="text-sm" />
+            <span className="text-[11px] font">전화</span>
+          </a>
         </div>
       ))}
     </div>
