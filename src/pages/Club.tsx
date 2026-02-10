@@ -39,6 +39,8 @@ const Club = () => {
 
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
+    setSearchTerm(""); 
+    
     if (scrollContainerRef.current) {
       setTimeout(() => {
         if (scrollContainerRef.current) {
