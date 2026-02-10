@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import logoImg from "../assets/logo.svg";
@@ -8,6 +9,15 @@ interface HeaderProps {
 
 const Header = ({ onOpenSidebar }: HeaderProps) => {
   const location = useLocation(); 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+    const scrollableElements = document.getElementsByClassName("overflow-y-auto");
+    for (let i = 0; i < scrollableElements.length; i++) {
+      scrollableElements[i].scrollTop = 0;
+    }
+  }, [location.pathname]);
 
   const getPageTitle = (path: string) => {
     if (path === "/notice") return "공지사항";
