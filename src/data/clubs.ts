@@ -52,8 +52,8 @@ export const clubs: ClubData[] = [
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/laputa_logo.png",
     images: [
       "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/laputa_1.jpeg",
-      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/laputa_1.jpeg",
-      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/laputa_1.jpeg",
+      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/laputa_2.jpeg",
+      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/laputa_3.jpeg",
     ],
     insta: "@kau_laputa",
   },
@@ -535,8 +535,8 @@ export const clubs: ClubData[] = [
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/fictur_logo.jpg",
     images: [
       "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/fictur_1.jpg",
-      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/fictur_1.jpg",
-      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/fictur_1.jpg",
+      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/fictur_2.jpg",
+      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/fictur_3.jpg",
     ],
     insta: "@kau_ficture",
   },
