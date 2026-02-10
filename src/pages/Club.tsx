@@ -18,7 +18,6 @@ const Club = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const searchBarRef = useRef<HTMLDivElement>(null);
 
-  // ✨ 검색 로직 수정 부분 ✨
   const filteredClubs = clubs.filter((club) => {
     // 1. 카테고리 필터
     const matchCategory = selectedCategory === "전체" || club.category === selectedCategory;
@@ -30,7 +29,6 @@ const Club = () => {
     const matchName = club.name.toLowerCase().includes(lowerSearchTerm);
     
     // 설명(description)에 포함되어 있는지 확인 
-    // (description이 데이터에 없는 경우를 대비해 안전하게 처리)
     const matchDescription = club.description 
       ? club.description.toLowerCase().includes(lowerSearchTerm) 
       : false;
