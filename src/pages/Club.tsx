@@ -18,10 +18,25 @@ const Club = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const searchBarRef = useRef<HTMLDivElement>(null);
 
+  // ✨ 검색 로직 수정 부분 ✨
   const filteredClubs = clubs.filter((club) => {
+    // 1. 카테고리 필터
     const matchCategory = selectedCategory === "전체" || club.category === selectedCategory;
-    const matchSearch = club.name.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchCategory && matchSearch;
+    
+    // 2. 검색어 필터 (이름 OR 설명)
+    const lowerSearchTerm = searchTerm.toLowerCase();
+    
+    // 이름에 포함되어 있는지 확인
+    const matchName = club.name.toLowerCase().includes(lowerSearchTerm);
+    
+    // 설명(description)에 포함되어 있는지 확인 
+    // (description이 데이터에 없는 경우를 대비해 안전하게 처리)
+    const matchDescription = club.description 
+      ? club.description.toLowerCase().includes(lowerSearchTerm) 
+      : false;
+
+    // 카테고리가 맞고, (이름 혹은 설명에 검색어가 포함되면) 리턴
+    return matchCategory && (matchName || matchDescription);
   });
 
   const handleCategorySelect = (category: string) => {
@@ -73,7 +88,7 @@ const Club = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="동아리 검색"
+                placeholder="동아리 이름, 소개 검색" 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full h-12 pl-6 pr-12 rounded-full border border-transparent shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] focus:outline-none focus:border-brand-start text-sm bg-white"
