@@ -216,7 +216,7 @@ export const clubs: ClubData[] = [
     images: [
       "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/jazzingyou_1.jpg",
       "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/jazzingyou_2.jpg",
-      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/jazzingyou_3.jpg",
+      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/jazzingyou_3.png",
     ],
     insta: "@kau.jazzingyou",
   },
