@@ -23,7 +23,7 @@ const ContactCard = ({ contacts }: ContactCardProps) => {
             <span className="text-[10px] text-gray-400 font-medium">
               {contact.role}
             </span>
-            <span className="text-[16px] font-bold text-gray-800 leading-tight">
+            <span className="text-[16px] text-gray-800 leading-tight">
               {contact.name}
             </span>
             {contact.phone && (

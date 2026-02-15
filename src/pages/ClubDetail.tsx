@@ -49,7 +49,7 @@ const ClubDetail = () => {
             <div 
               ref={scrollRef}
               onScroll={handleScroll}
-              className="w-full aspect-video rounded-[20px] overflow-x-auto no-scrollbar snap-x snap-mandatory flex shadow-sm border border-gray-100 bg-white"
+              className="w-full aspect-video rounded-[20px] overflow-x-auto snap-x snap-mandatory flex shadow-sm border border-gray-100 bg-white overscroll-y-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
               {validImages.map((imgUrl, index) => (
                 <div key={index} className="flex-none w-full h-full snap-center">
@@ -57,6 +57,7 @@ const ClubDetail = () => {
                     src={imgUrl} 
                     alt={`${club.name} 활동 사진 ${index + 1}`} 
                     className="w-full h-full object-cover"
+                    draggable={false} // 드래그 방지
                   />
                 </div>
               ))}

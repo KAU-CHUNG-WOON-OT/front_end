@@ -13,27 +13,21 @@ const Club = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("전체");
   const [searchTerm, setSearchTerm] = useState("");
+  
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
+  const [modalImageSrc, setModalImageSrc] = useState("");
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const searchBarRef = useRef<HTMLDivElement>(null);
 
   const filteredClubs = clubs.filter((club) => {
-    // 1. 카테고리 필터
     const matchCategory = selectedCategory === "전체" || club.category === selectedCategory;
-    
-    // 2. 검색어 필터 (이름 OR 설명)
     const lowerSearchTerm = searchTerm.toLowerCase();
-    
-    // 이름에 포함되어 있는지 확인
     const matchName = club.name.toLowerCase().includes(lowerSearchTerm);
-    
-    // 설명(description)에 포함되어 있는지 확인 
     const matchDescription = club.description 
       ? club.description.toLowerCase().includes(lowerSearchTerm) 
       : false;
 
-    // 카테고리가 맞고, (이름 혹은 설명에 검색어가 포함되면) 리턴
     return matchCategory && (matchName || matchDescription);
   });
 
@@ -50,11 +44,16 @@ const Club = () => {
     }
   };
 
+  const handleMapClick = (imageSrc: string) => {
+    setModalImageSrc(imageSrc);
+    setIsMapModalOpen(true);
+  };
+
   return (
     <>
       <div className="flex flex-col h-full w-full">
         
-        {/* 1. 상단 고정 영역: 카테고리 리스트 */}
+        {/* 1. 상단 고정 영역 */}
         <div className="flex-none px-8 pt-4 pb-2 z-30">
           <CategoryList 
             categories={categories} 
@@ -72,15 +71,14 @@ const Club = () => {
             WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black 100%)"
           }}
         >
-          
-          {/* (1) 부스 맵: '전체'일 때만 표시 */}
+          {/* (1) 부스 맵 */}
           {selectedCategory === "전체" && (
             <div className="px-8 mt-2 mb-4">
-              <BoothMap onClick={() => setIsMapModalOpen(true)} />
+              <BoothMap onClick={handleMapClick} />
             </div>
           )}
 
-          {/* (2) 검색창: Sticky 고정 */}
+          {/* (2) 검색창 */}
           <div 
             ref={searchBarRef}
             className="sticky top-0 z-20 px-8 pb-4 pt-2 backdrop-blur-md bg-white/10"
@@ -97,7 +95,7 @@ const Club = () => {
             </div>
           </div>
           
-          {/* (3) 동아리 카드 리스트 */}
+          {/* (3) 동아리 리스트 */}
           <div className="grid grid-cols-2 gap-4 px-9 pb-32">
             {filteredClubs.map((club) => (
               <ClubCard 
@@ -114,7 +112,12 @@ const Club = () => {
           </div>
         </div>
       </div>
-      <MapModal isOpen={isMapModalOpen} onClose={() => setIsMapModalOpen(false)} />
+      
+      <MapModal 
+        isOpen={isMapModalOpen} 
+        onClose={() => setIsMapModalOpen(false)} 
+        imageSrc={modalImageSrc}
+      />
     </>
   );
 };
