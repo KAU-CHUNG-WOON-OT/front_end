@@ -72,7 +72,7 @@ const BoothMap = ({ onClick }: BoothMapProps) => {
 
       {/* 위치 정보 */}
       <div className="flex items-center gap-1.5 text-sm text-gray-600 font-medium">
-        <span>📍 OO홀 | {mapImages[currentIndex].label}</span>
+        <span></span>
       </div>
     </div>
   );

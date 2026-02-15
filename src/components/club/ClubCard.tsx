@@ -1,5 +1,6 @@
 import logoImg from "../../assets/logo.svg";
 
+// ClubData 인터페이스가 다른 파일에 있다면 import 해오세요.
 export interface ClubData {
   id: number;
   name: string;
@@ -18,6 +19,12 @@ interface ClubCardProps {
 }
 
 const ClubCard = ({ club, onClick }: ClubCardProps) => {
+  // 예외 처리할 동아리 이름 
+  const wideLogoClubs = ["랩플레인", "SRS", "IVF", "IKAU"];
+
+  // 동아리가 예외 목록에 포함되는지 확인
+  const isWideLogo = wideLogoClubs.includes(club.name);
+
   return (
     <div 
       onClick={onClick}
@@ -27,12 +34,14 @@ const ClubCard = ({ club, onClick }: ClubCardProps) => {
         hover:-translate-y-px"
     >
       {/* 1. 로고 영역 */}
-      <div className="w-16 h-16 mb-2 flex items-center justify-center overflow-hidden rounded-2xl">
+      <div className={`mb-2 flex items-center justify-center overflow-hidden ${
+        isWideLogo ? "w-full h-16" : "w-16 h-16 rounded-2xl"
+      }`}>
         {club.logo_img ? (
            <img 
              src={club.logo_img} 
              alt={`${club.name} 로고`} 
-             className="w-full h-full object-cover" 
+             className={`w-full h-full ${isWideLogo ? "object-contain" : "object-cover"}`} 
            />
         ) : (
            <img 
