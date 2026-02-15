@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 interface MapModalProps {
   isOpen: boolean;
   onClose: () => void;
+  imageSrc: string; // ✨ 이미지를 동적으로 받기 위해 추가
 }
 
-const MapModal = ({ isOpen, onClose }: MapModalProps) => {
+const MapModal = ({ isOpen, onClose, imageSrc }: MapModalProps) => {
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
@@ -61,7 +62,7 @@ const MapModal = ({ isOpen, onClose }: MapModalProps) => {
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-sm bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[60vh]"
+        className="relative w-full max-w-sm bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[40vh]"
         onClick={(e) => e.stopPropagation()}
       >
         <div 
@@ -75,8 +76,9 @@ const MapModal = ({ isOpen, onClose }: MapModalProps) => {
           onTouchEnd={(e) => { onMouseUp(); handleDoubleTap(e); }}
           onClick={handleDoubleTap}
         >
+          {/* ✨ 전달받은 imageSrc 사용 */}
           <img 
-            src="/map.svg" 
+            src={imageSrc} 
             alt="지도 상세" 
             className="max-w-none transition-transform duration-300 ease-out will-change-transform"
             style={{ 
@@ -87,7 +89,6 @@ const MapModal = ({ isOpen, onClose }: MapModalProps) => {
             draggable={false}
           />
         </div>
-        
       </div>
     </div>
   );

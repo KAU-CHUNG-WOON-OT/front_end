@@ -32,7 +32,7 @@ export const clubs: ClubData[] = [
     name: "학생활공회",
     category: "항공분과",
     room: "학생회관 321호",
-    booth: "ㅁㅁㅁ",
+    booth: "A-4",
     description: "학생활공회는 대한민국 유일 활공기(글라이더) 비행 동아리입니다. 학교 앞 수색비행장에서 전공, 학년에 상관없이 항공대 재학생이라면 누구나 비행할 수 있습니다. 그뿐만 아니라, 학생들이 직접 비행에 필요한 장비를 제작하고, 활공기를 관리하며 재미도 쌓고, 인맥도 맺고, 보람을 느낄 수 있는 동아리입니다. 무동력 비행의 재미와 하늘을 나는 즐거움을 학생활공회에서 느껴보세요!",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/soaring_logo.png",
     images: [
@@ -47,7 +47,7 @@ export const clubs: ClubData[] = [
     name: "라퓨타",
     category: "항공분과",
     room: "학생회관 339호",
-    booth: "ㅁㅁㅁ",
+    booth: "A-1",
     description: `🎈안녕하세요! 국내 유일의 열기구 동아리 라퓨타입니다.\n저희는 열기구 비행은 물론 MT, 번개, 풋살, 볼링 등 친목 활동과 교내 행사 및 국내·국제 열기구 대회와 같은 다양한 활동을 하고 있습니다.\n특별한 경험을 하고 싶다면 라퓨타로 오세요 🩵`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/laputa_logo.png",
     images: [
@@ -62,7 +62,7 @@ export const clubs: ClubData[] = [
     name: "SRS",
     category: "항공분과",
     room: "학생회관 340호",
-    booth: "ㅁㅁㅁ",
+    booth: "A-2",
     description: `1988년부터 이어진 도전.\n직접 설계하고 제작한 로켓을 하늘로 쏘아 올리는 경험!\n당신의 첫 발사를 SRS에서 경험해보세요.`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/srs_logo.png",
     images: [
@@ -77,7 +77,7 @@ export const clubs: ClubData[] = [
     name: "MAC",
     category: "항공분과",
     room: "학생회관 329호",
-    booth: "ㅁㅁㅁ",
+    booth: "A-3",
     description: "설계부터 해석, 제작, 비행까지! 매해 다양한 대회에 출전, 화려한 수상실적을 자랑하는 동아리",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/mac_logo.png",
     images: [
@@ -107,7 +107,7 @@ export const clubs: ClubData[] = [
     name: "항공기제작연구회",
     category: "항공분과",
     room: "-",
-    booth: "ㅁㅁㅁ",
+    booth: "A-5",
     description: "항공기 제작 동아리",
     logo_img: "",
     images: ["", "", ""],
@@ -135,7 +135,7 @@ export const clubs: ClubData[] = [
     name: "우리부모",
     category: "연행분과",
     room: "학생회관 뒤편 컨테이너",
-    booth: "ㅁㅁㅁ",
+    booth: "B-2",
     description: `우리부모는 우리노래 부르기 모임을 줄인 말로\n39년째 이어져 온 동아리입니다.\n학번, 학과, 나이, 국적 상관없이 음악을 사랑하고 즐기는 누구나 환영합니다!!\n\n우리부모는 밴드부 중 가장 넓은 동아리방을 보유하고 있습니다.\n또한 학관 외부에 위치하여 소음으로부터 자유롭게 연습과 합주를 할 수 있습니다.\n\n악기를 다루지 못하더라도 가입하실 수 있습니다!\n멘토링 프로그램으로 원하는 악기를 배워서 공연하거나\n무대 디자이너, 촬영 등으로 들어오셔서 무대를 함께 꾸며나갈 수 있습니다☺️\n\n우리부모는 상시모집입니다!\n언제나 연락주세요!`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/wooboo_logo.png",
     images: [
@@ -150,7 +150,7 @@ export const clubs: ClubData[] = [
     name: "알피네",
     category: "연행분과",
     room: "학생회관 309호",
-    booth: "ㅁㅁㅁ",
+    booth: "B-8",
     description: "한국항공대학교 클래식 기타 동아리",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/alfine_logo.png",
     images: [
@@ -165,7 +165,7 @@ export const clubs: ClubData[] = [
     name: "에어락(AEROCK)",
     category: "연행분과",
     room: "학생회관 314호",
-    booth: "ㅁㅁㅁ",
+    booth: "B-7",
     description: "안녕하세요! 한국항공대학교 락밴드 에어락입니다. 저희 에어락은 소수정예로 활동하여 끈끈하면서도 음악에 대한 열정이 넘치는 부원들이 모인 동아리입니다. 작년에는 밴드 동아리 최초로 비행기 안에서 공연을 진행했는데요, 올해도 다양하고 많은 활동이 준비되어 있으니 에어락에서 락뿐만 아니라 여러 장르의 노래를 연주해보세요!",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/aerock_logo.png",
     images: [
@@ -180,7 +180,7 @@ export const clubs: ClubData[] = [
     name: "광대와 끼",
     category: "연행분과",
     room: "학생회관 316호",
-    booth: "ㅁㅁㅁ",
+    booth: "B-3",
     description: "한국항공대 유일 중앙풍물패 '광대와 끼'입니다. 한자리에 모여 같은 호흡으로 풍물을 울리고, 그 순간들을 함께 만들어가며 기록해 나갑니다.",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/kwangkki_logo.png",
     images: [
@@ -195,7 +195,7 @@ export const clubs: ClubData[] = [
     name: "랩플레인",
     category: "연행분과",
     room: "학생회관 309호",
-    booth: "ㅁㅁㅁ",
+    booth: "B-6",
     description: `✈️ 한국항공대학교 힙합동아리 랩플레인입니다! ✈️\n\n힙합 음악을 좋아하는 부원들이 모여 자작곡 및 커버곡을 제작하여 공연하고 풋살, MT, 파티 등 다양한 활동을 진행합니다!\n\n타 학교 힙합동아리들과의 교류를 진행하여 다양한 사람들과 친해질 수 있고, 동아리방 (학생회관 315호)에 구비된 장비들로 녹음 및 믹스/마스터 등을 체험해볼 수 있습니다!`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/raplane_logo.png",
     images: [
@@ -210,7 +210,7 @@ export const clubs: ClubData[] = [
     name: "재징유",
     category: "연행분과",
     room: "학생회관 317호",
-    booth: "ㅁㅁㅁ",
+    booth: "B-1",
     description: `안녕하세요~ ✈️ 항공대 재즈 감상 & 연주 동아리 재징유입니다!\n재징유는 항공대 유일의 🎧 재즈 감상 & 🎹 공연 동아리예요.\n격주 감상모임부터 정기 공연·버스킹까지 음악으로 꽉 찼어요 🎶\nMT, 벚꽃놀이, 한강 나들이 등 친목 활동도 함께해요 🌸\n자라섬 재즈페스티벌 봉사와 재즈바 탐방도 진행합니다 🍷\n재즈가 처음이어도 OK! 음악 좋아하면 누구나 환영 💛`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/jazzingyou_logo.jpg",
     images: [
@@ -240,7 +240,7 @@ export const clubs: ClubData[] = [
     name: "도스",
     category: "연행분과",
     room: "학생회관 312호",
-    booth: "ㅁㅁㅁ",
+    booth: "B-5",
     description: `한국항공대학교의 축제를 책임지는 유일무이 댄스 동아리 입니다.`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/dos_logo.png",
     images: [
@@ -255,7 +255,7 @@ export const clubs: ClubData[] = [
     name: "올뮤(ALL-MU)",
     category: "연행분과",
     room: "학생회관 313호",
-    booth: "ㅁㅁㅁ",
+    booth: "B-4",
     description: `올뮤(All-MU)는\n장르에 구애받지 않고, 하고 싶은 음악을 자유롭게 즐기는 밴드 동아리입니다.\n\n락, 팝, 제이팝, 인디 등 다양한 장르의 음악으로\n정기공연을 비롯해 은익체전, 축제 공연, 활주로 공연, 버스킹, 연합공연 등\n여러 무대에 서며 음악을 좋아하는 사람들이 함께 연습하고 추억을 만들어가요.\n\n악기 경험이 없어도, 무대에 서본 적이 없어도 괜찮습니다.\n음악을 좋아하는 마음 하나면 누구나 환영합니다! 🎶`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/allmu_logo.png",
     images: [
@@ -270,7 +270,7 @@ export const clubs: ClubData[] = [
     name: "줄올림",
     category: "연행분과",
     room: "학생회관 335호",
-    booth: "ㅁㅁㅁ",
+    booth: "B-9",
     description: "신입생을 위한 악기스터디와 새내기공연, 실력을 뽐낼 수 있는 봄공연과 정기공연, 그리고 버스킹과 사계절엠티까지! 1년을 낭만으로 채울 수 있는 항공대 유일의 어쿠스틱 밴드동아리 줄울림입니다♪♬",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/julullim_logo.png",
     images: [
@@ -364,7 +364,7 @@ export const clubs: ClubData[] = [
     name: "AVIATORS",
     category: "체육분과",
     room: "학생회관 301호",
-    booth: "ㅁㅁㅁ",
+    booth: "D-1",
     description: `저희 AVIATORS는 1999년에 창립된 후로 농구를 사랑하는 사람들이 모여 실력을 키우고, 함께 성장하며 멋진 팀워크를 만들어가는 한국항공대학교 농구 중앙동아리입니다. 농구를 처음 접하시는 분들부터 계속해서 해오셨던 숙련자분들까지 농구에 관심이 있으신 분들, 모임을 좋아하시는 분들, 스포츠를 좋아하시는 분들 모두 환영합니다!!`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/aviators_logo.png",
     images: [
@@ -379,7 +379,7 @@ export const clubs: ClubData[] = [
     name: "에어윙즈",
     category: "체육분과",
     room: "학생회관 326호",
-    booth: "ㅁㅁㅁ",
+    booth: "D-4",
     description: "안녕하십니까! 항공대학교 중앙 축구동아리 에어윙즈 입니다",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/airwings_logo.png",
     images: [
@@ -409,7 +409,7 @@ export const clubs: ClubData[] = [
     name: "보잉",
     category: "체육분과",
     room: "없음",
-    booth: "ㅁㅁㅁ",
+    booth: "D-2",
     description: `대학스노우보드연합에 소속되어있는 보드 동아리입니다.\n비시즌엔 다른 대학과 스케이트보드 라이딩과 MT를 가고, 본격적인 활동인 시즌활동에서는 스키장에서 부원들과 다 같이 시즌방을 운영하면서 스노우보드를 탑니다`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/boing_logo.png",
     images: [
@@ -461,7 +461,7 @@ export const clubs: ClubData[] = [
     name: "태권도부",
     category: "체육분과",
     room: "-",
-    booth: "ㅁㅁㅁ",
+    booth: "D-3",
     description: "태권도 수련 및 대회 출전",
     logo_img: "",
     images: ["", "", ""],
@@ -485,7 +485,7 @@ export const clubs: ClubData[] = [
     name: "ESC",
     category: "학술분과",
     room: "학생회관 320호",
-    booth: "ㅁㅁㅁ",
+    booth: "C-2",
     description: "전자회로 연구와 실습을 바탕으로 아이디어를 현실로 구현하며 실력과 친목을 함께 쌓는 학술 동아리입니다.",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/esc_logo.jpg",
     images: [
@@ -530,7 +530,7 @@ export const clubs: ClubData[] = [
     name: "픽쳐",
     category: "학술분과",
     room: "학생회관 336호",
-    booth: "ㅁㅁㅁ",
+    booth: "C-3",
     description: `📷 한국항공대학교 사진동아리 FICTURE(픽쳐) 📸\n\n사진을 좋아하는 사람이라면,\n카메라가 없어도,\n잘 찍지 못해도 괜찮아요.\n\nFICTURE는\n📸 사진을 좋아하는 사람들이 모여\n🚶 함께 나가 찍고, 추억을 남기는\n한국항공대학교의 유일한 사진동아리입니다.\n\n📍 FICTURE는 이런 동아리예요\n\n✔ 사진에 관심만 있어도 환영!\n✔ DSLR 없어도 OK (동아리 카메라 대여 가능)\n✔ 휴대폰 촬영도 대환영 📱\n✔ 학년·학과·나이 제한 없음\n✔ 하고 싶은 출사는 언제든 번개로 ⚡\n\n📍 2026 FICTURE 주요 활동\n\n📸 정기 출사\n매월 1회 정기 출사 진행 (시험기간 제외)\n\n1박 2일 여행 출사도 기획 중 🚘\n\n🍺 MT & 개강·종강 파티\n사진도 찍고, 대학의 낭만도 함께 즐겨요\n\n🥪 시험기간 야식 사업\n지친 당신을 위한 소소한 힐링\n\n🏆 FICTURE CONTEST\n자랑하고 싶은 사진, 마음껏 펼쳐보세요!\n순위권 상품까지 준비되어 있어요 🎁\n\n📍 이런 분들께 추천해요\n\n사진을 좋아하지만 혼자 찍기 심심한 분\n\n카메라를 배워보고 싶은 분\n\n기록하는 취미를 만들고 싶은 분\n\n대학 생활의 추억을 남기고 싶은 분\n\n\n📌회장(김유승): 010-3540-7063\n📌부회장(윤나경): 010-4580-9228\n📌인스타그램: @kau_ficture\n\n궁금한 점 있으시면 언제든 편하게 연락주세요!\n\n📍 지원 방법\n📸 구글폼 : https://forms.gle/QVWRVfrvmqAphPwh9\n📷 회비: 20,000원\n📷 입금계좌: 3333360084037 카카오뱅크 김예찬 (총무)\n\n궁금한 점이 있다면 언제든지 편하게 연락 주세요!\n사진으로 남길 당신의 대학 생활, FICTURE와 함께해요 🤍`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/fictur_logo.jpg",
     images: [
@@ -545,7 +545,7 @@ export const clubs: ClubData[] = [
     name: "PTPI",
     category: "학술분과",
     room: "없음",
-    booth: "ㅁㅁㅁ",
+    booth: "C-5",
     description: "한국항공대 PTPI는 대학교 학생챕터로서 경희대, 이화여대, 명지대, 아주대와 교류하고 있는 연합봉사동아리입니다. 교내 학우들과 봉사활동을 진행하고 친목을 도모하며 즐겁고 의미있는 학교 생활을 보낼 수 있습니다. 또한, 타 대학들과 연합활동을 진행하여 더욱 다양한 대학 생활을 가능하게 합니다. 굿네이버스 경기2본부와 연계하여 활동도 진행하고 있으니 많은 신청바랍니다.",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/ptpi_logo.jpg",
     images: [
@@ -560,7 +560,7 @@ export const clubs: ClubData[] = [
     name: "세인영",
     category: "학술분과",
     room: "없음",
-    booth: "ㅁㅁㅁ",
+    booth: "C-1",
     description: "영화를 사랑하는 사람들이 모여 스크린 그 이상의 가치를 공유하는 세인영입니다. 매달 정기 모임을 통해 고전 명작부터 최신 화제작까지 다양한 장르를 섭렵하고, 상영 후에는 가벼운 대화와 함께 서로의 감상을 나눕니다. 영화를 잘 몰라도 괜찮습니다. 그저 영화가 끝난 뒤의 여운을 누군가와 나누고 싶은 분이라면 누구든 환영합니다!",
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/saint_logo.jpeg",
     images: [
@@ -620,7 +620,7 @@ export const clubs: ClubData[] = [
     name: "IKAU",
     category: "학술분과",
     room: "학생회관 334호",
-    booth: "ㅁㅁㅁ",
+    booth: "C-4",
     description: `안녕하세요 저희는 한국항공대 유일무이한 전공강연 동아리 아이카우입니다🙌\n\n🥳 아이카우는 이런 사람을 환영합니다! 🥳\n❤️ 다양한 학과의 사람들과 친해지고 싶은 사람\n❤️ 전공 강연에 관심있는 사람\n❤️ 발표에 대한 두려움을 떨치고 PT를 잘하고 싶은 사람\n❤️ 깔끔하고 예쁜 PPT 제작 능력을 갖고 싶은 사람\n❤️ 성별, 나이, 학번 제한 없는 동아리 활동을 하고 싶은 사람\n❤️ 중•고등학생에게 인기 스타가 되고 싶은 사람\n❤️ 친목과 커리어, 두 마리 토끼를 동시에 잡고 싶은 사람\n❤️ 전공 선택에 필요한 전공 정보를 왕창 얻어가고 싶은 사람 \n\n위 여덟 개의 항목 중 하나라도 해당된다면!\n🌱아이카우에 지원하세요🌱\n\n💮 아이카우는 무슨 활동을 하나요?\n1️⃣ 발표 실력을 다지는 주제발표부터 전공강연까지, 알찬 교육 활동!\nPPT, PT 교육을 통해 발표에 대한 꿀팁을 얻어간 후, 그 꿀팁을 직접 활용해 볼 수 있는 발표 활동을 진행해요! 거기다 전공강연에 대한 걱정을 할 필요 없도록 선배들의 든든한 멘토링도 기다리고 있답니다😉 그렇게 완벽해진 실력으로 학생들 앞에서 전공강연까지~\n2️⃣ MT, 뒤풀이, 번개 모임 등 다양한 친목 활동!\n아이카우 들어오기만 하면 자동으로 인싸의 길 입성! 교육 후 격주로 있는 뒤풀이는 서로 안 친해질 수가 없다는데~? 번개 모임으로 한강 치맥에 보드게임카페까지! 거기다 재밌다고 소문난 MT!! 이 외에도 많은 친목 활동들이 기다리고 있어요😎\n\n🔔 아이카우에 들어오면 이런 것들을 얻을 수 있다고? 🔔\n⭐️ 발표 두려움은 사라지고 자신감은 UP!\n⭐️ 고급지고 깔끔한 PPT 제작 스킬 습득!\n⭐️ 인맥도 친구도 얻는 인싸 찬스!\n⭐️ 사계절 쾌적한 아이카우 동아리방 자유 이용!\n⭐️ 전공강연으로 자부심 넘치는 항대생!\n⭐️ 전공과 관련된 꿀정보와 족보까지 한가득!\n⭐️ 전공강연 후 얻는 봉사시간 혹은 강연료까지!\n\n📢 활동은 언제인가요?\n교육은 매주 목요일 오후 6시에 진행됩니다!\n(시험 기간 2주 전 또는 축제 등 행사날 제외)\n\n📢 회비는 얼마인가요?\n신입부원 기준 3만원입니다. 회비는 지원 마감 후 합격문자와 함께 계좌를 보내드릴 예정이니 그때 내주시면 됩니다!\n\n📢 지원은 언제 하나요?\n3/2(월)~3/8(일)까지 모집 예정입니다!\n\n📢 지원은 어떻게 하나요?\n아이카우 공식 인스타그램 혹은 에타 홍보글에 게시될 구글폼 클릭 후 지원서 작성해주시면 신청 완료입니다!\n\n아이카우 모집이나 활동에 관해 궁금한 점이 있으면 언제든지 아래 연락처로 연락주세요!\n\n아이카우 공식 인스타그램 : @ikau_2026\n회장(모재은) : 010-2126-3892\n부회장(신지원) : 010-4035-6682`,
     logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/ikau_logo.png",
     images: [
@@ -632,6 +632,21 @@ export const clubs: ClubData[] = [
   },
   {
     id: 43,
+    name: "SEED",
+    category: "학술분과",
+    room: "항공우주박물관 207호",
+    booth: "E-5",
+    description: `한국항공대학교 기술 창업 동아리 🌱SEED🌱에서\n2026년도 1학기 신입 부원을 모집합니다!💪\n\n나만의 작업실이 필요하신분, 창업에 관심 있는 분, 다양한 아이디어 경진대회를 경험해보고 싶은 분, 알차고 의미 있는 동아리 활동을 찾고 있는 분. 전공·학년 무관, 누구나 환영합니다!📣\n\n각종 장비들과 끈끈한 팀원 덕분에 일단 들어오면 학교생활에 굉장히 큰 도움이 된다는데...?\n\n🌱 다수의 창업 대회 수상 경력 🌱\n📍 25-1 창업아이디어경진대회 최우수상\n📍 25-2 ICT 창업 메이커톤 대상\n\n🌱 넓고 쾌적한 SEED 동방, 메이커스페이스급 빵빵한 보유 장비 🌱\n🚩위치: 항공우주박물관 2층 207호 (교직원식당 바로 앞!)\n✔ P1S 4대, H2S 1대 등 총 8대의 3D 프린터\n✔ 고성능 인두기\n✔ 로터리툴, 열풍기, 전원공급장치, 드릴 등\n✔ 아두이노, 라즈베리파이 및 각종 센서류 부품\n✔ 대회, 공모전, 프로젝트 등에 만능 작업장으로 쓰일 수 있는 커다란 동방\n+ 추가로 레이저커팅기, 도색 부스도 도입 논의중!\n\n😎 동아리 부원 누구나 자유롭게 사용 가능! 😎\n\n🌱 2026년 1학기 예정 활동 🌱\n📢 SPACE 졸업요건 중 C(창업도전역량)을 취득할 수 있는 다양한 활동을 진행합니다!\n📍 팀 빌딩을 통한 각종 교내외 대회 참가\n📍 각종 스터디 세션\n - 경제, 모델링, PCB 제작, 노션, 프로그래밍 등...\n📍 세미나, 네트워킹 행사 등 창업관련 대외활동 참가\n\n🌱 단순한 동아리 활동을 넘어,\n다양한 사람들과 소통하며 스펙을 쌓고,\n문제를 바라보는 시야와 사고력을 기르고 싶은 분들,\n\nSEED에서 함께 성장해요 🔥`,
+    logo_img: "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/logo/seed_logo.png",
+    images: [
+      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/seed_1.jpg",
+      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/seed_2.jpg",
+      "https://cjddns-s3.s3.ap-northeast-2.amazonaws.com/activities/seed_3.jpg",
+    ],
+    insta: "@seed_kau",
+  },
+  {
+    id: 44,
     name: "IPR",
     category: "학술분과",
     room: "-",
@@ -642,7 +657,7 @@ export const clubs: ClubData[] = [
     insta: "",
   },
   {
-    id: 44,
+    id: 45,
     name: "북앤락",
     category: "학술분과",
     room: "-",
@@ -653,7 +668,7 @@ export const clubs: ClubData[] = [
     insta: "",
   },
   {
-    id: 45,
+    id: 46,
     name: "로타랙트",
     category: "학술분과",
     room: "-",
