@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 interface MapModalProps {
   isOpen: boolean;
   onClose: () => void;
-  imageSrc: string; // ✨ 이미지를 동적으로 받기 위해 추가
-}
+  imageSrc: string;
 
 const MapModal = ({ isOpen, onClose, imageSrc }: MapModalProps) => {
   const [scale, setScale] = useState(1);
@@ -76,7 +75,6 @@ const MapModal = ({ isOpen, onClose, imageSrc }: MapModalProps) => {
           onTouchEnd={(e) => { onMouseUp(); handleDoubleTap(e); }}
           onClick={handleDoubleTap}
         >
-          {/* ✨ 전달받은 imageSrc 사용 */}
           <img 
             src={imageSrc} 
             alt="지도 상세" 

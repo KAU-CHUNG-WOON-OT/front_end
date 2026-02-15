@@ -37,7 +37,7 @@ const BoothMap = ({ onClick }: BoothMapProps) => {
         <div 
           ref={scrollRef}
           onScroll={handleScroll}
-          className="w-full h-full flex overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="w-full h-full flex overflow-x-auto snap-x snap-mandatory overscroll-y-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           {mapImages.map((img, index) => (
             <div 
@@ -56,7 +56,7 @@ const BoothMap = ({ onClick }: BoothMapProps) => {
         </div>
       </div>
 
-      {/* 인디케이터 */}
+      {/* 인디케이터 (점) */}
       <div className="flex gap-1.5 mb-3">
         {mapImages.map((_, idx) => (
           <div 
@@ -72,7 +72,7 @@ const BoothMap = ({ onClick }: BoothMapProps) => {
 
       {/* 위치 정보 */}
       <div className="flex items-center gap-1.5 text-sm text-gray-600 font-medium">
-        <span>📍 OO홀 | 0월 00일 10:30~16:00</span>
+        <span>📍 OO홀 | {mapImages[currentIndex].label}</span>
       </div>
     </div>
   );
