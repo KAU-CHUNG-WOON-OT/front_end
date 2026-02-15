@@ -4,6 +4,7 @@ interface MapModalProps {
   isOpen: boolean;
   onClose: () => void;
   imageSrc: string;
+}
 
 const MapModal = ({ isOpen, onClose, imageSrc }: MapModalProps) => {
   const [scale, setScale] = useState(1);
