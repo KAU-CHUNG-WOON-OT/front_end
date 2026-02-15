@@ -17,11 +17,11 @@ export interface College {
 
 // 총학생회 (메인 페이지 상단용)
 export const mainContacts: Contact[] = [
-  { role: "회장", name: "김총학", phone: "010-0000-0000" },
-  { role: "부회장", name: "이부회", phone: "010-0000-0000" },
+  { role: "회장", name: "홍석담", phone: "010-4122-3598" },
+  { role: "부회장", name: "주민재", phone: "010-7794-5826" },
 ];
 
-// 단과대별 데이터 (사진 기반 더미 데이터)
+// 단과대별 데이터
 export const colleges: College[] = [
   {
     id: "ai",
@@ -30,22 +30,22 @@ export const colleges: College[] = [
       {
         name: "항공전자정보공학부",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "박수홍", phone: "010-4945-8789" },
+          { role: "부회장", name: "임채희", phone: "010-4414-0123" },
         ],
       },
       {
         name: "소프트웨어학과",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "김재영", phone: "010-6555-4585" },
+          { role: "부회장", name: "김승욱", phone: "010-9480-3992" },
         ],
       },
       {
         name: "AI자율주행시스템공학과",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "이찬용", phone: "010-2277-5144" },
+          { role: "부회장", name: "박주원", phone: "010-8466-6503" },
         ],
       },
     ],
@@ -57,22 +57,22 @@ export const colleges: College[] = [
       {
         name: "항공우주 및 기계공학부",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "이현준", phone: "010-4414-2721" },
+          { role: "부회장", name: "이수민", phone: "010-5428-4196" },
         ],
       },
       {
         name: "신소재공학과",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "김한결", phone: "010-8377-9058" },
+          { role: "부회장", name: "홍승민", phone: "010-2918-7104" },
         ],
       },
       {
         name: "스마트드론공학과",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "이승아", phone: "010-2212-2087" },
+          { role: "부회장", name: "임상희", phone: "010-2869-4845" },
         ],
       },
     ],
@@ -84,22 +84,22 @@ export const colleges: College[] = [
       {
         name: "항공교통물류학부",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "박예린", phone: "010-4363-4101" },
+          { role: "부회장", name: "김성재", phone: "010-9815-3938" },
         ],
       },
       {
         name: "경영학부",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "김효나", phone: "010-8330-0506" },
+          { role: "부회장", name: "장예지", phone: "010-5355-2487" },
         ],
       },
       {
         name: "항공운항학과",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "김상호", phone: "010-2290-2701" },
+          { role: "부회장", name: "조재현", phone: "010-9628-9564" },
         ],
       },
     ],
@@ -111,8 +111,8 @@ export const colleges: College[] = [
       {
         name: "자유전공학부 학생회",
         contacts: [
-          { role: "회장", name: "하코딩", phone: "010-3030-2222" },
-          { role: "부회장", name: "문알고", phone: "010-3030-3333" },
+          { role: "회장", name: "김사빈", phone: "010-8010-4980" },
+          { role: "부회장", name: "신재하", phone: "010-6525-0337" },
         ],
       },
     ],
