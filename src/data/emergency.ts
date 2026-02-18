@@ -45,7 +45,7 @@ export const colleges: College[] = [
         name: "AI자율주행시스템공학과",
         contacts: [
           { role: "회장", name: "이찬용", phone: "010-2277-5144" },
-          { role: "부회장", name: "박주원", phone: "010-8466-6503" },
+          { role: "부회장", name: "박원준", phone: "010-8466-6503" },
         ],
       },
     ],
@@ -98,7 +98,7 @@ export const colleges: College[] = [
       {
         name: "항공운항학과",
         contacts: [
-          { role: "회장", name: "김상호", phone: "010-2290-2701" },
+          { role: "회장", name: "이상호", phone: "010-2290-2701" },
           { role: "부회장", name: "조재현", phone: "010-9628-9564" },
         ],
       },
