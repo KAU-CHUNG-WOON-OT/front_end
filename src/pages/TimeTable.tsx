@@ -39,9 +39,9 @@ const TimeTable = () => {
   }, [selectedItem]);
 
   return (
-    <div className="flex-1 overflow-y-auto pb-[80px] pt-[10px]">
-      <div className="mx-auto flex max-w-[402px] flex-col gap-[20px] px-[17px] text-black">
-        <div className="flex gap-[10px]">
+    <div className="flex h-full w-full flex-col">
+      <div className="flex-none pb-4 pt-[8px]">
+        <div className="mx-auto flex max-w-[402px] gap-[10px] px-[17px] text-black">
           {filterOptions.map((option) => {
             const isActive = option.id === selectedDay;
             return (
@@ -60,83 +60,87 @@ const TimeTable = () => {
             );
           })}
         </div>
+      </div>
 
-        <div className="rounded-[16px] bg-[linear-gradient(152.3135854113913deg,rgba(255,255,255,0.665)_0%,rgba(255,255,255,0.19)_100.01%)] px-[24px] pb-[24px] pt-[24px] shadow-[0px_8px_10px_0px_rgba(0,0,0,0.1)] backdrop-blur-[20px]">
-          <div className="flex flex-col gap-[16px]">
-            {visibleDays.map((day) => (
-              <div key={day.id} className="flex flex-col gap-[12px]">
-                <div
-                  className="rounded-[14px] px-[16px] py-[16px]"
-                  style={{
-                    background:
-                      day.id === "day1"
-                        ? "linear-gradient(90deg, #63C3EB 0%, #0B7DFF 100%)"
-                        : day.id === "day2"
-                          ? "linear-gradient(90deg, #FFD1DC 0%, #FF61B2 100%)"
-                        : "linear-gradient(90deg, rgba(164, 231, 255, 0.37) 0.114%, #A4BBFF 100%)",
-                  }}
-                >
-                  <div className="flex items-center gap-[12px]">
-                    <div className="flex h-[24px] w-[24px] items-center justify-center text-white">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-[24px] w-[24px]"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M7 3V7M17 3V7M4 9H20M5 5H19C20.1046 5 21 5.89543 21 7V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V7C3 5.89543 3.89543 5 5 5Z"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[16px] font-normal leading-[24px] tracking-[-0.3125px] text-white">
-                        {day.label.toUpperCase()}
-                      </span>
-                      <span className="text-[14px] font-normal leading-[20px] tracking-[-0.1504px] text-white/90">
-                        {day.dateLabel}
-                      </span>
+      <div className="flex-1 overflow-y-auto pb-[80px]">
+        <div className="mx-auto flex max-w-[402px] flex-col gap-[20px] px-[17px] text-black">
+          <div className="rounded-[16px] bg-[linear-gradient(152.3135854113913deg,rgba(255,255,255,0.665)_0%,rgba(255,255,255,0.19)_100.01%)] px-[24px] pb-[24px] pt-[24px] shadow-[0px_8px_10px_0px_rgba(0,0,0,0.1)] backdrop-blur-[20px]">
+            <div className="flex flex-col gap-[16px]">
+              {visibleDays.map((day) => (
+                <div key={day.id} className="flex flex-col gap-[12px]">
+                  <div
+                    className="rounded-[14px] px-[16px] py-[16px]"
+                    style={{
+                      background:
+                        day.id === "day1"
+                          ? "linear-gradient(90deg, #63C3EB 0%, #0B7DFF 100%)"
+                          : day.id === "day2"
+                            ? "linear-gradient(90deg, #FFD1DC 0%, #FF61B2 100%)"
+                            : "linear-gradient(90deg, rgba(164, 231, 255, 0.37) 0.114%, #A4BBFF 100%)",
+                    }}
+                  >
+                    <div className="flex items-center gap-[12px]">
+                      <div className="flex h-[24px] w-[24px] items-center justify-center text-white">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-[24px] w-[24px]"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M7 3V7M17 3V7M4 9H20M5 5H19C20.1046 5 21 5.89543 21 7V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V7C3 5.89543 3.89543 5 5 5Z"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[16px] font-normal leading-[24px] tracking-[-0.3125px] text-white">
+                          {day.label.toUpperCase()}
+                        </span>
+                        <span className="text-[14px] font-normal leading-[20px] tracking-[-0.1504px] text-white/90">
+                          {day.dateLabel}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="flex flex-col gap-[12px]">
-                  {day.items.length === 0 ? (
-                    <div className="rounded-[10px] bg-white/60 px-[16px] py-[16px] text-[14px] text-[#6a7282]">
-                      일정이 아직 등록되지 않았어요.
-                    </div>
-                  ) : (
-                    day.items.map((item, itemIndex) => (
-                      <button
-                        key={`${day.id}-${item.time}-${item.title}`}
-                        type="button"
-                        onClick={() =>
-                          setSelectedItem({ dayId: day.id, itemIndex })
-                        }
-                        className="flex w-full items-start gap-[16px] rounded-[10px] px-[12px] py-[12px] text-left transition-colors hover:bg-white/30"
-                      >
-                        <div className="w-[52px] text-[16px] font-normal leading-[24px] tracking-[-0.3125px] text-[#0b7dff]">
-                          {item.time}
-                        </div>
-                        <div className="flex flex-1 flex-col">
-                          <span className="text-[16px] font-normal leading-[24px] tracking-[-0.3125px] text-[#101828]">
-                            {item.title}
-                          </span>
-                          <span className="text-[14px] font-normal leading-[20px] tracking-[-0.1504px] text-[#6a7282]">
-                            {item.location}
-                          </span>
-                        </div>
-                      </button>
-                    ))
-                  )}
+                  <div className="flex flex-col gap-[12px]">
+                    {day.items.length === 0 ? (
+                      <div className="rounded-[10px] bg-white/60 px-[16px] py-[16px] text-[14px] text-[#6a7282]">
+                        일정이 아직 등록되지 않았어요.
+                      </div>
+                    ) : (
+                      day.items.map((item, itemIndex) => (
+                        <button
+                          key={`${day.id}-${item.time}-${item.title}`}
+                          type="button"
+                          onClick={() =>
+                            setSelectedItem({ dayId: day.id, itemIndex })
+                          }
+                          className="flex w-full items-start gap-[16px] rounded-[10px] px-[12px] py-[12px] text-left transition-colors hover:bg-white/30"
+                        >
+                          <div className="w-[52px] text-[16px] font-normal leading-[24px] tracking-[-0.3125px] text-[#0b7dff]">
+                            {item.time}
+                          </div>
+                          <div className="flex flex-1 flex-col">
+                            <span className="text-[16px] font-normal leading-[24px] tracking-[-0.3125px] text-[#101828]">
+                              {item.title}
+                            </span>
+                            <span className="text-[14px] font-normal leading-[20px] tracking-[-0.1504px] text-[#6a7282]">
+                              {item.location}
+                            </span>
+                          </div>
+                        </button>
+                      ))
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -155,7 +159,7 @@ const TimeTable = () => {
           >
             <div
               className="relative z-10 flex h-[142px] flex-col gap-[4px] px-[16px] py-[16px]"
-              style={{  
+              style={{
                 background:
                   activeDetail.day.id === "day1"
                     ? "linear-gradient(90deg, #63C3EB 0%, #0B7DFF 100%)"
