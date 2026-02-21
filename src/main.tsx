@@ -14,6 +14,7 @@ import Resort from './pages/Resort.tsx'
 import Emergency from './pages/Emergency.tsx'
 import EmergencyDetail from './pages/EmergencyDetail.tsx'
 import Makers from './pages/Makers.tsx'
+import HambaekDetail from './pages/HambaekDetail.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -29,7 +30,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/club" element={<Club />} />       {/* 동아리 정보 */}
           <Route path="/club/:id" element={<ClubDetail />} /> {/* 동아리 상세 */}
           <Route path="/resort" element={<Resort />} />   {/* 리조트 정보 */}
-          
+          <Route path="/resort/hambaek" element={<HambaekDetail />} /> {/* 함백동 상세 */}
+
           <Route path="/emergency" element={<Emergency />} /> {/* 긴급연락 메인 */}
           <Route path="/emergency/:id" element={<EmergencyDetail />} /> {/* 긴급연락 상세 */}
           

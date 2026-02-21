@@ -23,7 +23,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
     if (path === "/notice") return "공지사항";
     if (path === "/timetable") return "타임테이블";
     if (path.startsWith("/club")) return "동아리 정보";
-    if (path === "/resort") return "리조트 정보";
+    if (path.startsWith("/resort")) return "리조트 정보";
     if (path.startsWith("/emergency")) return "긴급연락망";
     if (path === "/makers") return "만든이";
     return "";
