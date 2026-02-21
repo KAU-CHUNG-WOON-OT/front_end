@@ -34,14 +34,7 @@ const Club = () => {
   const handleCategorySelect = (category: string) => {
     setSelectedCategory(category);
     setSearchTerm(""); 
-    
-    if (scrollContainerRef.current) {
-      setTimeout(() => {
-        if (scrollContainerRef.current) {
-           scrollContainerRef.current.scrollTop = 0;
-        }
-      }, 0);
-    }
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleMapClick = (imageSrc: string) => {

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
 import { daySchedules } from "../data/Timetable";
 
 const filterOptions = [
@@ -9,6 +9,7 @@ const filterOptions = [
 ] as const;
 
 const TimeTable = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedDay, setSelectedDay] =
     useState<(typeof filterOptions)[number]["id"]>("all");
   const [selectedItem, setSelectedItem] = useState<{
@@ -48,7 +49,10 @@ const TimeTable = () => {
               <button
                 key={option.id}
                 type="button"
-                onClick={() => setSelectedDay(option.id)}
+                onClick={() => {
+                  setSelectedDay(option.id);
+                  scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className={`h-[35px] w-[60px] rounded-[25px] text-[14px] font-bold leading-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-colors ${
                   isActive
                     ? "bg-[#252b4f] text-white"
@@ -62,8 +66,15 @@ const TimeTable = () => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto pb-[80px]">
-        <div className="mx-auto flex max-w-[402px] flex-col gap-[20px] px-[17px] text-black">
+      <div
+        ref={scrollRef}
+        className="flex-1 overflow-y-auto relative no-scrollbar"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black 100%)",
+        }}
+      >
+        <div className="mx-auto flex max-w-[402px] flex-col gap-[20px] px-[17px] pb-[80px] pt-2 text-black">
           <div className="rounded-[16px] bg-[linear-gradient(152.3135854113913deg,rgba(255,255,255,0.665)_0%,rgba(255,255,255,0.19)_100.01%)] px-[24px] pb-[24px] pt-[24px] shadow-[0px_8px_10px_0px_rgba(0,0,0,0.1)] backdrop-blur-[20px]">
             <div className="flex flex-col gap-[16px]">
               {visibleDays.map((day) => (
@@ -144,6 +155,7 @@ const TimeTable = () => {
           </div>
         </div>
       </div>
+
       {activeDetail && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(149,149,149,0.5)] p-[20px]">
           <button

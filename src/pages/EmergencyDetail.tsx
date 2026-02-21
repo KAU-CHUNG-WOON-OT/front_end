@@ -40,7 +40,7 @@ const EmergencyDetail = () => {
             college.majors.map((major, index) => (
               <div
                 key={index}
-                className="shrink-0 rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] bg-white/60 backdrop-blur-md border border-white/40"
+                className="shrink-0 rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] bg-white/60 backdrop-blur-md border border-white/40 transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-2 hover:shadow-lg active:scale-[0.98]"
               >
                 {/* (1) 학과 헤더 */}
                 <div className="bg-[#FFF4E6] px-6 py-4 border-b border-[#FFD6A8]">

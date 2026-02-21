@@ -23,7 +23,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
     if (path === "/notice") return "공지사항";
     if (path === "/timetable") return "타임테이블";
     if (path.startsWith("/club")) return "동아리 정보";
-    if (path === "/resort") return "리조트 정보";
+    if (path.startsWith("/resort")) return "리조트 정보";
     if (path.startsWith("/emergency")) return "긴급연락망";
     if (path === "/makers") return "만든이";
     return "";
@@ -32,7 +32,8 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
   const currentTitle = getPageTitle(location.pathname);
 
   return (
-    <header className="relative flex justify-between items-center p-6 z-50 bg-transparent">
+    <header className="sticky top-0 flex justify-between items-center p-6 z-50 bg-transparent">
+      
       <button 
         onClick={onOpenSidebar} 
         className="flex items-center justify-center p-0 bg-transparent border-none cursor-pointer z-10"

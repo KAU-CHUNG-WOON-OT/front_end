@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface MapModalProps {
   isOpen: boolean;
@@ -12,6 +12,7 @@ const MapModal = ({ isOpen, onClose, imageSrc }: MapModalProps) => {
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const [lastTapTime, setLastTapTime] = useState(0);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -28,6 +29,11 @@ const MapModal = ({ isOpen, onClose, imageSrc }: MapModalProps) => {
   };
 
   const handleDoubleTap = (e: React.TouchEvent | React.MouseEvent) => {
+    if (imageRef.current && scale === 1) {
+      const { naturalWidth, clientWidth } = imageRef.current;
+      if (naturalWidth <= clientWidth) return;
+    }
+
     const currentTime = new Date().getTime();
     const tapLength = currentTime - lastTapTime;
 
@@ -57,16 +63,16 @@ const MapModal = ({ isOpen, onClose, imageSrc }: MapModalProps) => {
   const onMouseUp = () => setIsDragging(false);
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 transition-opacity duration-300"
       onClick={onClose}
     >
-      <div 
-        className="relative w-full max-w-sm bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[40vh]"
+      <div
+        className="relative rounded-2xl overflow-hidden shadow-2xl max-w-[90vw] max-h-[85vh] flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
-        <div 
-          className="flex-1 bg-gray-50 relative overflow-hidden flex items-center justify-center touch-none"
+        <div
+          className="relative overflow-hidden touch-none"
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
@@ -76,14 +82,18 @@ const MapModal = ({ isOpen, onClose, imageSrc }: MapModalProps) => {
           onTouchEnd={(e) => { onMouseUp(); handleDoubleTap(e); }}
           onClick={handleDoubleTap}
         >
-          <img 
-            src={imageSrc} 
-            alt="지도 상세" 
-            className="max-w-none transition-transform duration-300 ease-out will-change-transform"
-            style={{ 
+          <img
+            ref={imageRef}
+            src={imageSrc}
+            alt="지도 상세"
+            className="transition-transform duration-300 ease-out will-change-transform"
+            style={{
               transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
-              width: "100%", 
-              cursor: scale > 1 ? "grab" : "default" 
+              maxWidth: "100%",
+              maxHeight: "85vh",
+              display: "block",
+              cursor: scale > 1 ? "grab" : "default",
+              objectFit: "contain",
             }}
             draggable={false}
           />

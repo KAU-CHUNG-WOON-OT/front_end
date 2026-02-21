@@ -1,6 +1,5 @@
 import logoImg from "../../assets/logo.svg";
 
-// ClubData 인터페이스가 다른 파일에 있다면 import 해오세요.
 export interface ClubData {
   id: number;
   name: string;
@@ -21,8 +20,7 @@ interface ClubCardProps {
 const ClubCard = ({ club, onClick }: ClubCardProps) => {
   // 예외 처리할 동아리 이름 
   const wideLogoClubs = ["랩플레인", "SRS", "IVF", "IKAU"];
-
-  // 동아리가 예외 목록에 포함되는지 확인
+ 
   const isWideLogo = wideLogoClubs.includes(club.name);
 
   return (

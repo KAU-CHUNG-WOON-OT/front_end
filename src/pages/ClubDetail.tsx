@@ -57,7 +57,7 @@ const ClubDetail = () => {
                     src={imgUrl} 
                     alt={`${club.name} 활동 사진 ${index + 1}`} 
                     className="w-full h-full object-cover"
-                    draggable={false} // 드래그 방지
+                    draggable={false}
                   />
                 </div>
               ))}
@@ -84,7 +84,7 @@ const ClubDetail = () => {
         )}
 
         {/* (2) 정보 박스 */}
-        <div className="bg-white rounded-[20px] p-6 shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-gray-100">
+        <div className="bg-white/60 backdrop-blur-md rounded-[20px] p-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-white/40 transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-2 hover:shadow-lg active:scale-[0.98]">
             
           {/* 텍스트 정보 리스트 */}
           <div className="mb-5 space-y-1.5">
@@ -119,7 +119,7 @@ const ClubDetail = () => {
             )}
           </div>
 
-          <hr className="border-gray-200 mb-5" />
+          <hr className="border-gray-200/60 mb-5" />
 
           {/* 소개글 */}
           <div className="text-[15px] text-gray-700 leading-relaxed whitespace-pre-line break-words">
