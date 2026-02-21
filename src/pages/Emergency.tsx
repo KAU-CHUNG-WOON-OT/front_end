@@ -10,9 +10,8 @@ const Emergency = () => {
   return (
     <div className="flex flex-col h-full w-full px-6 pt-6 pb-20 overflow-y-auto no-scrollbar">
       
-      {/* 1. 행동 요령 */}
       <div 
-        className="w-full rounded-[24px] p-6 shadow-[0_8px_30px_rgb(255,0,0,0.12)] text-white mb-6 shrink-0"
+        className="w-full rounded-[24px] p-6 shadow-[0_8px_30px_rgb(255,0,0,0.12)] text-white mb-6 shrink-0 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_10px_20px_0px_rgba(255,0,31,0.25)] active:scale-[0.98] active:translate-y-0 active:shadow-[0px_4px_8px_0px_rgba(255,0,31,0.15)]"
         style={{
           background: "linear-gradient(to bottom right, #FF001F 0%, rgba(255, 0, 31, 0.8) 100%)"
         }}
@@ -35,9 +34,7 @@ const Emergency = () => {
         </ul>
       </div>
 
-      {/* 2. 총학생회 연락처 */}
-      <div className="shrink-0 rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] bg-white/60 backdrop-blur-md border border-white/40 mb-6">
-        
+      <div className="shrink-0 rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] bg-white/60 backdrop-blur-md border border-white/40 mb-6 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_10px_20px_0px_rgba(0,0,0,0.15)] active:scale-[0.98] active:translate-y-0 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]">
         <div className="bg-[#FFF7ED] px-6 py-4 border-b border-[#FFD6A8]">
            <img 
              src={logoImg} 
@@ -51,9 +48,7 @@ const Emergency = () => {
         </div>
       </div>
 
-      {/* 3. 단과대별 리스트 */}
       <div className="shrink-0 rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.04)] bg-white/60 backdrop-blur-md border border-white/40">
-        
         <div className="bg-[#FFF7ED] px-6 py-4 border-b border-[#FFD6A8] flex items-center gap-2">
            <span className="text-[15px] font-bold text-gray-900">단과대별 학생회</span>
         </div>

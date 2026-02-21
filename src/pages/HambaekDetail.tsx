@@ -43,7 +43,7 @@ const HambaekDetail = () => {
 
           <div className="flex flex-col gap-5">
             
-            <div className="bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(214,235,255,0.65)_100%)] rounded-[20px] p-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] flex items-center gap-5">
+            <div className="bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(214,235,255,0.65)_100%)] rounded-[20px] p-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] flex items-center gap-5 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_10px_20px_0px_rgba(0,0,0,0.15)] active:scale-[0.98] active:translate-y-0 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]">
               <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
                 <img src={cuImg} alt="CU 로고" className="w-full h-full object-contain" />
               </div>
@@ -62,7 +62,7 @@ const HambaekDetail = () => {
               </div>
             </div>
 
-            <div className="bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(214,235,255,0.65)_100%)] rounded-[20px] p-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] flex gap-6">
+            <div className="bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(214,235,255,0.65)_100%)] rounded-[20px] p-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] flex gap-6 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_10px_20px_0px_rgba(0,0,0,0.15)] active:scale-[0.98] active:translate-y-0 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]">
               <div className="flex-shrink-0 w-10 pt-0.5">
                 <h3 className="font-bold text-[17px] text-[#3a3f4b]">객실</h3>
               </div>
