@@ -1,15 +1,13 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
 import emblemRectangle from "../assets/emblem_rectangle.svg";
 import { notices, type NoticeCategory } from "../data/notice";
 
 const filterOptions: NoticeCategory[] = ["전체", "장소", "흡연", "기타"];
 
 const Notice = () => {
-  const [selectedFilter, setSelectedFilter] =
-    useState<NoticeCategory>("전체");
-  const [selectedNoticeId, setSelectedNoticeId] = useState<number | null>(
-    null,
-  );
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedFilter, setSelectedFilter] = useState<NoticeCategory>("전체");
+  const [selectedNoticeId, setSelectedNoticeId] = useState<number | null>(null);
 
   const visibleNotices = useMemo(() => {
     if (selectedFilter === "전체") {
@@ -27,7 +25,7 @@ const Notice = () => {
 
   return (
     <div className="flex h-full w-full flex-col">
-      <div className="flex-none pt-[8px]">
+      <div className="flex-none pt-[8px] pb-[4px] mb-2">
         <div className="mx-auto flex max-w-[402px] justify-start gap-[10px] px-6">
           {filterOptions.map((option) => {
             const isActive = option === selectedFilter;
@@ -35,7 +33,10 @@ const Notice = () => {
               <button
                 key={option}
                 type="button"
-                onClick={() => setSelectedFilter(option)}
+                onClick={() => {
+                  setSelectedFilter(option);
+                  scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className={`h-[35px] w-[60px] rounded-[25px] text-[14px] font-bold leading-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-colors ${
                   isActive ? "bg-[#252b4f] text-white" : "bg-white text-[#252b4f]"
                 }`}
@@ -47,8 +48,15 @@ const Notice = () => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto pb-[80px] pt-[16px]">
-        <div className="mx-auto flex max-w-[402px] flex-col gap-[18px] px-6">
+      <div 
+        ref={scrollRef}
+        className="flex-1 overflow-y-auto no-scrollbar relative"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%)",
+        }}
+      >
+        <div className="mx-auto flex max-w-[402px] flex-col gap-[18px] px-6 pb-[80px] pt-[12px]">
           {visibleNotices.map((notice) => (
             <button
               key={notice.id}
