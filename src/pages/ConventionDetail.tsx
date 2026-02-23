@@ -20,7 +20,7 @@ const ConventionDetail = () => {
   return (
     <div className="flex flex-col h-full w-full relative">
 
-      <div className="flex items-center justify-between px-6 py-4 z-50 sticky top-0 backdrop-blur-md">
+      <div className="flex-none flex items-center justify-between px-6 py-4 z-50 bg-transparent">
         <button onClick={() => navigate(-1)} className="p-1 -ml-2 cursor-pointer active:scale-95 transition-transform">
           <FiChevronLeft className="text-2xl text-[#3a3f4b]" />
         </button>
@@ -36,10 +36,10 @@ const ConventionDetail = () => {
           WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black 100%)"
         }}
       >
-        <div className="flex flex-col gap-6 px-7 pb-24 pt-2">
+        <div className="flex flex-col px-7 pb-24 pt-2">
 
           <div
-            className="w-full rounded-[20px] overflow-hidden shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] cursor-pointer active:scale-[0.98] transition-transform duration-200"
+            className="w-full rounded-[20px] overflow-hidden shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] cursor-pointer active:scale-[0.98] transition-transform duration-200 mb-6"
             onClick={() => setIsModalOpen(true)}
           >
             <img
@@ -49,7 +49,13 @@ const ConventionDetail = () => {
             />
           </div>
 
-          <div className="w-full z-30">
+          <div
+            className="sticky top-0 z-30 -mx-7 px-7 pt-2 pb-6 backdrop-blur-xl bg-white/60 mb-2"
+            style={{
+              maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+            }}
+          >
             <CategoryList
               categories={tabs}
               selectedCategory={activeTab}
