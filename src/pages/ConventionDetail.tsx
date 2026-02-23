@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiChevronLeft } from "react-icons/fi";
 import MapModal from "../components/resort/MapModal";
@@ -10,12 +10,20 @@ const ConventionDetail = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("전체");
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const tabs = ["전체", "1층", "2층"];
 
   const filteredRooms = activeTab === "전체"
     ? conventionRooms
     : conventionRooms.filter((room) => room.floor === activeTab);
+
+  const handleCategorySelect = (category: string) => {
+    setActiveTab(category);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="flex flex-col h-full w-full relative">
@@ -30,6 +38,7 @@ const ConventionDetail = () => {
       </div>
 
       <div
+        ref={scrollContainerRef} 
         className="flex-1 overflow-y-auto no-scrollbar relative"
         style={{
           maskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black 100%)",
@@ -59,7 +68,7 @@ const ConventionDetail = () => {
             <CategoryList
               categories={tabs}
               selectedCategory={activeTab}
-              onSelect={setActiveTab}
+              onSelect={handleCategorySelect} 
             />
           </div>
 
