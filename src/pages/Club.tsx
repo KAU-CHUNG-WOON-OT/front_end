@@ -74,7 +74,11 @@ const Club = () => {
           {/* (2) 검색창 */}
           <div 
             ref={searchBarRef}
-            className="sticky top-0 z-20 px-8 pb-4 pt-2 backdrop-blur-md bg-white/10"
+            className="sticky top-0 z-20 px-8 pb-6 pt-4 backdrop-blur-md bg-white/10"
+            style={{
+              maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+            }}
           >
             <div className="relative">
               <input
