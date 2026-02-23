@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiChevronLeft } from "react-icons/fi";
 import MapModal from "../components/resort/MapModal";
@@ -10,6 +10,7 @@ const ConventionDetail = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("전체");
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const tabs = ["전체", "1층", "2층"];
 
@@ -17,10 +18,17 @@ const ConventionDetail = () => {
     ? conventionRooms
     : conventionRooms.filter((room) => room.floor === activeTab);
 
+  const handleCategorySelect = (category: string) => {
+    setActiveTab(category);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="flex flex-col h-full w-full relative">
 
-      <div className="flex items-center justify-between px-6 py-4 z-50 sticky top-0 backdrop-blur-md">
+      <div className="flex-none flex items-center justify-between px-6 py-4 z-50 bg-transparent">
         <button onClick={() => navigate(-1)} className="p-1 -ml-2 cursor-pointer active:scale-95 transition-transform">
           <FiChevronLeft className="text-2xl text-[#3a3f4b]" />
         </button>
@@ -30,16 +38,17 @@ const ConventionDetail = () => {
       </div>
 
       <div
+        ref={scrollContainerRef} 
         className="flex-1 overflow-y-auto no-scrollbar relative"
         style={{
           maskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black 100%)",
           WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black 100%)"
         }}
       >
-        <div className="flex flex-col gap-6 px-7 pb-24 pt-2">
+        <div className="flex flex-col px-7 pb-24 pt-2">
 
           <div
-            className="w-full rounded-[20px] overflow-hidden shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] cursor-pointer active:scale-[0.98] transition-transform duration-200"
+            className="w-full rounded-[20px] overflow-hidden shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] cursor-pointer active:scale-[0.98] transition-transform duration-200 mb-6"
             onClick={() => setIsModalOpen(true)}
           >
             <img
@@ -49,11 +58,17 @@ const ConventionDetail = () => {
             />
           </div>
 
-          <div className="w-full z-30">
+          <div
+            className="sticky top-0 z-30 -mx-7 px-7 pt-2 pb-6 backdrop-blur-xl bg-white/60 mb-2"
+            style={{
+              maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+            }}
+          >
             <CategoryList
               categories={tabs}
               selectedCategory={activeTab}
-              onSelect={setActiveTab}
+              onSelect={handleCategorySelect} 
             />
           </div>
 
@@ -67,7 +82,7 @@ const ConventionDetail = () => {
                   <img
                     src={room.image}
                     alt={room.name}
-                    className={`w-full h-full ${room.isLogo ? "object-contain p-2" : "object-cover"}`}
+                    className={`w-full h-full ${room.isLogo ? "object-contain p-2 brightness-0" : "object-cover"}`}
                   />
                 </div>
 
@@ -81,13 +96,15 @@ const ConventionDetail = () => {
                     </li>
                   </ul>
 
-                  {room.purpose && (
+                  {room.purpose && room.purpose.length > 0 && (
                     <>
                       <p className="text-[12px] font-semibold text-gray-800 mb-0.5">용도</p>
                       <ul className="text-[12px] text-gray-700 space-y-0.5 ml-2 font-medium">
-                        <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">
-                          {room.purpose}
-                        </li>
+                        {room.purpose.map((p, idx) => (
+                          <li key={idx} className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">
+                            {p}
+                          </li>
+                        ))}
                       </ul>
                     </>
                   )}

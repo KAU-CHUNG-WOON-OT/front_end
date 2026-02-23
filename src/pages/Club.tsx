@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { FiSearch } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import CategoryList from "../components/club/CategoryList";
 import BoothMap from "../components/club/BoothMap";
 import ClubCard from "../components/club/ClubCard";
@@ -11,7 +11,11 @@ const categories = ["전체", "항공분과", "연행분과", "종교분과", "�
 
 const Club = () => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState("전체");
+  const location = useLocation(); 
+
+  // 전달받은 state가 있으면 해당 카테고리를, 없으면 "전체"를 초기값으로 설정
+  const initialCategory = location.state?.category || "전체";
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchTerm, setSearchTerm] = useState("");
   
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
@@ -74,7 +78,11 @@ const Club = () => {
           {/* (2) 검색창 */}
           <div 
             ref={searchBarRef}
-            className="sticky top-0 z-20 px-8 pb-4 pt-2 backdrop-blur-md bg-white/10"
+            className="sticky top-0 z-20 px-8 pb-6 pt-4 backdrop-blur-md bg-white/10"
+            style={{
+              maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+            }}
           >
             <div className="relative">
               <input
