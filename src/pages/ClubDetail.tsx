@@ -27,12 +27,17 @@ const ClubDetail = () => {
     }
   };
 
+  // 뒤로가기 핸들러: 이동 시 현재 카테고리를 state로 함께 넘겨줌
+  const handleGoBack = () => {
+    navigate("/club", { state: { category: club.category } });
+  };
+
   return (
     <div className="flex flex-col h-full w-full relative">
       
       {/* 1. 헤더 (상단 고정) */}
       <div className="flex items-center justify-between px-6 py-4 z-50 sticky top-0">
-        <button onClick={() => navigate(-1)} className="p-1 -ml-2 cursor-pointer">
+        <button onClick={handleGoBack} className="p-1 -ml-2 cursor-pointer">
           <FiChevronLeft className="text-2xl text-black" />
         </button>
         <h1 className="text-lg font-bold text-gray-900 absolute left-1/2 transform -translate-x-1/2">
