@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
-import logoImg from "../assets/logo.svg";
+import logoImg from "../assets/logo_black.svg";
 
 interface HeaderProps {
   onOpenSidebar: () => void;
