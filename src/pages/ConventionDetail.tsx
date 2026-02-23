@@ -82,7 +82,7 @@ const ConventionDetail = () => {
                   <img
                     src={room.image}
                     alt={room.name}
-                    className={`w-full h-full ${room.isLogo ? "object-contain p-2" : "object-cover"}`}
+                    className={`w-full h-full ${room.isLogo ? "object-contain p-2 brightness-0" : "object-cover"}`}
                   />
                 </div>
 
@@ -96,13 +96,15 @@ const ConventionDetail = () => {
                     </li>
                   </ul>
 
-                  {room.purpose && (
+                  {room.purpose && room.purpose.length > 0 && (
                     <>
                       <p className="text-[12px] font-semibold text-gray-800 mb-0.5">용도</p>
                       <ul className="text-[12px] text-gray-700 space-y-0.5 ml-2 font-medium">
-                        <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">
-                          {room.purpose}
-                        </li>
+                        {room.purpose.map((p, idx) => (
+                          <li key={idx} className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">
+                            {p}
+                          </li>
+                        ))}
                       </ul>
                     </>
                   )}

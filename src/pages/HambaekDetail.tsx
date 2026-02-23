@@ -4,6 +4,7 @@ import { FiChevronLeft } from "react-icons/fi";
 import MapModal from "../components/resort/MapModal"; 
 import hambaekImg from "../assets/Hambaek.jpg";
 import cuImg from "../assets/cu.png"; 
+import logoImg from "../assets/logo_black.svg"; 
 
 const HambaekDetail = () => {
   const navigate = useNavigate();
@@ -47,7 +48,6 @@ const HambaekDetail = () => {
               <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
                 <img src={cuImg} alt="CU 로고" className="w-full h-full object-contain" />
               </div>
-              
               <div>
                 <h3 className="font-bold text-[17px] text-[#3a3f4b] mb-2">CU편의점</h3>
                 <p className="text-[13px] font-semibold text-gray-800 mb-1">운영시간</p>
@@ -62,19 +62,38 @@ const HambaekDetail = () => {
               </div>
             </div>
 
-            <div className="bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(214,235,255,0.65)_100%)] rounded-[20px] p-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] flex gap-6 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_10px_20px_0px_rgba(0,0,0,0.15)] active:scale-[0.98] active:translate-y-0 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]">
-              <div className="flex-shrink-0 w-10 pt-0.5">
-                <h3 className="font-bold text-[17px] text-[#3a3f4b]">객실</h3>
+            <div className="bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(214,235,255,0.65)_100%)] rounded-[20px] p-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] flex items-center gap-5 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_10px_20px_0px_rgba(0,0,0,0.15)] active:scale-[0.98] active:translate-y-0 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]">
+              <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
+                <img src={logoImg} alt="가야수1 로고" className="w-full h-full object-contain p-1 brightness-0" />
               </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-[17px] text-[#3a3f4b] mb-1.5">가야수1</h3>
+                <p className="text-[13px] font-semibold text-gray-800 mb-0.5">위치</p>
+                <ul className="text-[13px] text-gray-700 space-y-0.5 ml-2 font-medium mb-1.5">
+                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">
+                    함백동 1층
+                  </li>
+                </ul>
+                <p className="text-[13px] font-semibold text-gray-800 mb-0.5">용도</p>
+                <ul className="text-[13px] text-gray-700 space-y-0.5 ml-2 font-medium">
+                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">
+                    자유전공학부 레크레이션
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-[linear-gradient(135deg,rgba(255,255,255,0.95)_0%,rgba(214,235,255,0.65)_100%)] rounded-[20px] p-6 shadow-[0px_6px_10px_0px_rgba(0,0,0,0.18)] flex gap-6 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_10px_20px_0px_rgba(0,0,0,0.15)] active:scale-[0.98] active:translate-y-0 active:shadow-[0px_4px_8px_0px_rgba(0,0,0,0.1)]">
+              
               
               <div>
                 <p className="text-[13px] font-bold text-[#3a3f4b] mb-2">단과대학 및 학(부)과 배정 객실</p>
                 <ul className="text-[13px] text-gray-700 space-y-1 ml-2 font-medium">
-                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">3층:</li>
-                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">4층:</li>
-                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">5층:</li>
-                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">6층:</li>
-                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">7층:</li>
+                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">3층: 항공운항학과, 자유전공학부</li>
+                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">4층: 공과대학</li>
+                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">5층: 항공·경영대학</li>
+                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">6층: AI융합대학</li>
+                  <li className="relative before:content-['•'] before:absolute before:-left-2.5 before:text-gray-700">7층: 스마트드론공학과, AI자율주행시스템공학과</li>
                 </ul>
               </div>
             </div>
