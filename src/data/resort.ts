@@ -2,7 +2,7 @@
 import restaurantImg from "../assets/restaurant.gif"; 
 import grandImg from "../assets/grand.png"; 
 import recImg from "../assets/rec.png"; 
-import logoImg from "../assets/logo.svg"; 
+import logoImg from "../assets/logo_black.svg"; 
 
 export interface ConventionRoom {
   id: number;
