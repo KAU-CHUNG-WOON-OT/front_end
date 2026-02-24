@@ -15,13 +15,17 @@ export interface College {
   majors: Major[];
 }
 
-// 총학생회 (메인 페이지 상단용)
 export const mainContacts: Contact[] = [
   { role: "회장", name: "홍석담", phone: "010-4122-3598" },
   { role: "부회장", name: "주민재", phone: "010-7794-5826" },
 ];
 
-// 단과대별 데이터
+export const staffContacts: Contact[] = [
+  { role: "교직원", name: "학생지원팀", phone: "010-4904-9949" },
+  { role: "교직원", name: "의료지원실", phone: "010-8428-4756" },
+  { role: "DDC 담당자", name: "이상훈 차장님", phone: "010-5448-0882" },
+];
+
 export const colleges: College[] = [
   {
     id: "ai",
