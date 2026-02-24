@@ -8,9 +8,14 @@ const Emergency = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col h-full w-full px-6 pt-6 pb-20 overflow-y-auto no-scrollbar">
+    <div 
+      className="flex flex-col h-full w-full px-6 pt-6 pb-20 overflow-y-auto no-scrollbar relative"
+      style={{
+        maskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%)"
+      }}
+    >
       
-      {/* 긴급 상황 요령 박스 */}
       <div 
         className="w-full rounded-[24px] p-6 shadow-[0_8px_30px_rgb(255,0,0,0.12)] text-white mb-6 shrink-0 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0px_10px_20px_0px_rgba(255,0,31,0.25)] active:scale-[0.98] active:translate-y-0 active:shadow-[0px_4px_8px_0px_rgba(255,0,31,0.15)]"
         style={{
