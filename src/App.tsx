@@ -74,8 +74,8 @@ function App() {
       return;
     }
 
-    // "처음 1번만"을 위해, 보여주는 즉시 저장
-    localStorage.setItem(ONBOARDING_KEY, "true");
+    // 탭 단위(세션)로 온보딩 노출 여부를 유지
+    sessionStorage.setItem(ONBOARDING_KEY, "true");
   }, [showOnboarding]);
 
   const goToHome = () => {
