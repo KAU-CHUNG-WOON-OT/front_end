@@ -5,6 +5,8 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { OnboardingProvider } from "../contexts/OnboardingContext";
 
+const ONBOARDING_KEY = "kau_chungwoon_onboarding_seen";
+
 interface LayoutProps {
   children: ReactNode;
 }
@@ -16,7 +18,7 @@ const Layout = ({ children }: LayoutProps) => {
     if (location.pathname !== "/") {
       return false;
     }
-    return localStorage.getItem("kau_chungwoon_onboarding_seen") !== "true";
+    return sessionStorage.getItem(ONBOARDING_KEY) !== "true";
   });
 
   const openSidebar = () => setIsSidebarOpen(true);
