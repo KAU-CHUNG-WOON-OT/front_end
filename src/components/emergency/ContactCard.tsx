@@ -17,17 +17,19 @@ const ContactCard = ({ contacts }: ContactCardProps) => {
       {contacts.map((contact, index) => (
         <div
           key={index}
-          className="w-full bg-white rounded-[10px] px-4 py-1 shadow-[0_2px_10px_rgba(0,0,0,0.03)] flex items-center justify-between"
+          className="w-full bg-white rounded-[10px] px-4 py-2 shadow-[0_2px_10px_rgba(0,0,0,0.03)] flex items-center justify-between"
         >
           <div className="flex flex-col">
-            <span className="text-[10px] text-gray-400 font-medium">
-              {contact.role}
-            </span>
+            {contact.role !== "교직원" && (
+              <span className="text-[10px] text-gray-400 font-medium mb-0.5">
+                {contact.role}
+              </span>
+            )}
             <span className="text-[16px] text-gray-800 leading-tight">
               {contact.name}
             </span>
             {contact.phone && (
-              <span className="text-[12px] text-gray-400">
+              <span className="text-[12px] text-gray-400 mt-0.5">
                 {contact.phone}
               </span>
             )}
@@ -38,7 +40,7 @@ const ContactCard = ({ contacts }: ContactCardProps) => {
             className="flex items-center gap-1.5 bg-[#0084FF] text-white px-3.5 py-2 rounded-[12px] shadow-sm active:scale-95 transition-transform"
           >
             <FiPhone className="text-sm" />
-            <span className="text-[11px] font">전화</span>
+            <span className="text-[11px] font-medium">전화</span>
           </a>
         </div>
       ))}
