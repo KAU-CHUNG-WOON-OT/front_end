@@ -38,7 +38,9 @@ const Notice = () => {
                   scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 className={`h-[35px] w-[60px] rounded-[25px] text-[14px] font-bold leading-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] transition-colors ${
-                  isActive ? "bg-[#252b4f] text-white" : "bg-white text-[#252b4f]"
+                  isActive
+                    ? "bg-[#252b4f] text-white"
+                    : "bg-white text-[#252b4f]"
                 }`}
               >
                 {option}
@@ -48,12 +50,14 @@ const Notice = () => {
         </div>
       </div>
 
-      <div 
+      <div
         ref={scrollRef}
         className="flex-1 overflow-y-auto no-scrollbar relative"
         style={{
-          maskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%)",
         }}
       >
         <div className="mx-auto flex max-w-[402px] flex-col gap-[18px] px-6 pb-[80px] pt-[12px]">
@@ -95,8 +99,8 @@ const Notice = () => {
             className="absolute inset-0"
             onClick={() => setSelectedNoticeId(null)}
           />
-          <div className="relative z-10 h-[360px] w-full max-w-[352px] rounded-[25px] border border-white/50 bg-white/90 p-[20px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] backdrop-blur-[20px]">
-            <div className="rounded-[14px] bg-[linear-gradient(90deg,#afe6ff_0%,#ffffff_100%)] px-[16px] py-[12px]">
+          <div className="relative z-10 flex h-[min(600px,calc(100dvh-72px))] w-full max-w-[352px] flex-col rounded-[25px] border border-white/50 bg-white/90 p-[20px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] backdrop-blur-[20px]">
+            <div className="shrink-0 rounded-[14px] bg-[linear-gradient(90deg,#afe6ff_0%,#ffffff_100%)] px-[16px] py-[12px]">
               <div className="flex items-center gap-[12px]">
                 <img
                   src={emblemRectangle}
@@ -114,7 +118,14 @@ const Notice = () => {
               </div>
             </div>
 
-            <div className="mt-[18px] h-[calc(100%-86px)] overflow-y-auto whitespace-pre-wrap px-[4px] text-[15px] leading-[24px] text-[#1c1c1c]">
+            <div className="mt-[18px] flex-1 overflow-y-auto whitespace-pre-wrap wrap-break-word px-[4px] text-[15px] leading-[24px] text-[#1c1c1c]">
+              {activeNotice.image && (
+                <img
+                  src={activeNotice.image}
+                  alt={`${activeNotice.title} 이미지`}
+                  className="mb-[14px] max-h-[58dvh] w-full rounded-[12px] object-contain"
+                />
+              )}
               {activeNotice.content}
             </div>
           </div>
