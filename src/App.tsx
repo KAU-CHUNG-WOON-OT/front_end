@@ -69,6 +69,7 @@ function App() {
     useOnboarding();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const homeSectionRef = useRef<HTMLElement | null>(null);
   const touchStartY = useRef<number | null>(null);
   const scrollAnimationFrame = useRef<number | null>(null);
   const transitionEndTimer = useRef<number | null>(null);
@@ -93,13 +94,27 @@ function App() {
     };
   }, []);
 
-  const animateOnboardingScroll = (el: HTMLDivElement) => {
+  const getHomeSectionTop = (el: HTMLDivElement) => {
+    return homeSectionRef.current?.offsetTop ?? el.clientHeight;
+  };
+
+  const scheduleOnboardingFinish = (delayMs: number) => {
+    if (transitionEndTimer.current !== null) {
+      window.clearTimeout(transitionEndTimer.current);
+    }
+    transitionEndTimer.current = window.setTimeout(() => {
+      setIsTransitioning(false);
+      setShowOnboarding(false);
+      transitionEndTimer.current = null;
+    }, delayMs);
+  };
+
+  const animateOnboardingScroll = (el: HTMLDivElement, targetTop: number) => {
     if (scrollAnimationFrame.current !== null) {
       window.cancelAnimationFrame(scrollAnimationFrame.current);
     }
 
     const startTop = el.scrollTop;
-    const targetTop = el.clientHeight;
     const distance = targetTop - startTop;
 
     if (Math.abs(distance) < 1) {
@@ -137,17 +152,9 @@ function App() {
     }
 
     setIsTransitioning(true);
-    animateOnboardingScroll(el);
-
-    if (transitionEndTimer.current !== null) {
-      window.clearTimeout(transitionEndTimer.current);
-    }
-
-    transitionEndTimer.current = window.setTimeout(() => {
-      setIsTransitioning(false);
-      setShowOnboarding(false);
-      transitionEndTimer.current = null;
-    }, ONBOARDING_SCROLL_DURATION + 120);
+    const homeTop = getHomeSectionTop(el);
+    animateOnboardingScroll(el, homeTop);
+    scheduleOnboardingFinish(ONBOARDING_SCROLL_DURATION + 120);
   };
 
   const handleWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
@@ -168,20 +175,35 @@ function App() {
     touchStartY.current = e.touches[0]?.clientY ?? null;
   };
 
-  const handleTouchMove: React.TouchEventHandler<HTMLDivElement> = (e) => {
+  const handleTouchEnd: React.TouchEventHandler<HTMLDivElement> = (e) => {
     if (!showOnboarding) {
       return;
     }
     const startY = touchStartY.current;
-    const currentY = e.touches[0]?.clientY ?? null;
-    if (startY === null || currentY === null) {
+    const endY = e.changedTouches[0]?.clientY ?? null;
+    touchStartY.current = null;
+
+    if (startY === null || endY === null) {
       return;
     }
 
-    const delta = startY - currentY; // 위로 스와이프(=아래로 스크롤)면 양수
-    if (delta > 24 && (scrollRef.current?.scrollTop ?? 0) < 10) {
+    const delta = startY - endY; // 위로 스와이프(=아래로 스크롤)면 양수
+    if (delta > 36 && (scrollRef.current?.scrollTop ?? 0) < 24) {
       goToHome();
-      touchStartY.current = null;
+    }
+  };
+
+  const handleOnboardingScroll: React.UIEventHandler<HTMLDivElement> = (e) => {
+    if (!showOnboarding || isTransitioning) {
+      return;
+    }
+
+    const el = e.currentTarget;
+    const homeTop = getHomeSectionTop(el);
+    // 사용자가 직접 충분히 스크롤한 경우 자연스럽게 온보딩 종료
+    if (el.scrollTop >= homeTop - 24) {
+      setIsTransitioning(true);
+      scheduleOnboardingFinish(80);
     }
   };
 
@@ -190,10 +212,11 @@ function App() {
       {showOnboarding ? (
         <div
           ref={scrollRef}
-          className={`no-scrollbar flex-1 snap-y snap-mandatory overflow-y-auto overscroll-contain ${isTransitioning ? "pointer-events-none" : ""}`}
+          className={`scrollbar-hide flex-1 snap-y snap-proximity overflow-y-auto overscroll-contain ${isTransitioning ? "pointer-events-none" : ""}`}
+          onScroll={handleOnboardingScroll}
           onWheelCapture={handleWheel}
           onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           {/* Onboarding */}
           <section className="relative mx-auto flex min-h-full max-w-[402px] snap-start flex-col items-center justify-center px-[17px]">
@@ -254,7 +277,7 @@ function App() {
           </section>
 
           {/* Home */}
-          <section className="snap-start pb-[80px] pt-[70px]">
+          <section ref={homeSectionRef} className="snap-start pb-[80px] pt-[70px]">
             <div className="mx-auto flex max-w-[402px] flex-col items-center px-[17px] text-center">
               <ChungwoonEmblem className="h-[143px] w-[212px] object-contain text-[#364153]" />
               <p className="mt-[6px] font-['Pretendard_Variable',sans-serif] text-[20px] font-medium leading-[50px] text-black">
