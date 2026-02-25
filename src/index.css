@@ -21,3 +21,32 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none !important; 
 }
+
+@keyframes onboarding-chevron {
+  0% {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  30%,
+  70% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.onboarding-chevron {
+  animation: onboarding-chevron 1.4s ease-in-out infinite;
+}
+
+.onboarding-chevron + .onboarding-chevron {
+  animation-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onboarding-chevron {
+    animation: none !important;
+  }
+}

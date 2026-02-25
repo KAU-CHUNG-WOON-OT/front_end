@@ -42,6 +42,8 @@ const menuItems = [
   },
 ];
 
+const ONBOARDING_SCROLL_DURATION = 720;
+
 const ChungwoonEmblem = ({ className }: { className: string }) => {
   return (
     <svg
@@ -68,6 +70,8 @@ function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const touchStartY = useRef<number | null>(null);
+  const scrollAnimationFrame = useRef<number | null>(null);
+  const transitionEndTimer = useRef<number | null>(null);
 
   useEffect(() => {
     if (!showOnboarding) {
@@ -78,6 +82,54 @@ function App() {
     sessionStorage.setItem(ONBOARDING_KEY, "true");
   }, [showOnboarding]);
 
+  useEffect(() => {
+    return () => {
+      if (scrollAnimationFrame.current !== null) {
+        window.cancelAnimationFrame(scrollAnimationFrame.current);
+      }
+      if (transitionEndTimer.current !== null) {
+        window.clearTimeout(transitionEndTimer.current);
+      }
+    };
+  }, []);
+
+  const animateOnboardingScroll = (el: HTMLDivElement) => {
+    if (scrollAnimationFrame.current !== null) {
+      window.cancelAnimationFrame(scrollAnimationFrame.current);
+    }
+
+    const startTop = el.scrollTop;
+    const targetTop = el.clientHeight;
+    const distance = targetTop - startTop;
+
+    if (Math.abs(distance) < 1) {
+      el.scrollTop = targetTop;
+      return;
+    }
+
+    const startTime = performance.now();
+    const easeInOutCubic = (progress: number) =>
+      progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    const tick = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / ONBOARDING_SCROLL_DURATION, 1);
+      const easedProgress = easeInOutCubic(progress);
+      el.scrollTop = startTop + distance * easedProgress;
+
+      if (progress < 1) {
+        scrollAnimationFrame.current = window.requestAnimationFrame(tick);
+        return;
+      }
+
+      scrollAnimationFrame.current = null;
+    };
+
+    scrollAnimationFrame.current = window.requestAnimationFrame(tick);
+  };
+
   const goToHome = () => {
     const el = scrollRef.current;
     if (!el || isTransitioning) {
@@ -85,12 +137,17 @@ function App() {
     }
 
     setIsTransitioning(true);
-    el.scrollTo({ top: el.clientHeight, behavior: "smooth" });
+    animateOnboardingScroll(el);
 
-    window.setTimeout(() => {
+    if (transitionEndTimer.current !== null) {
+      window.clearTimeout(transitionEndTimer.current);
+    }
+
+    transitionEndTimer.current = window.setTimeout(() => {
       setIsTransitioning(false);
       setShowOnboarding(false);
-    }, 650);
+      transitionEndTimer.current = null;
+    }, ONBOARDING_SCROLL_DURATION + 120);
   };
 
   const handleWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
@@ -133,24 +190,71 @@ function App() {
       {showOnboarding ? (
         <div
           ref={scrollRef}
-          className="flex-1 overflow-y-auto overscroll-contain scroll-smooth"
+          className={`no-scrollbar flex-1 snap-y snap-mandatory overflow-y-auto overscroll-contain ${isTransitioning ? "pointer-events-none" : ""}`}
           onWheelCapture={handleWheel}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
         >
           {/* Onboarding */}
-          <section className="relative mx-auto flex min-h-full max-w-[402px] flex-col items-center justify-center px-[17px]">
-            <ChungwoonEmblem className="h-[169px] w-[242px] object-contain text-[#364153]" />
-
-            <div className="absolute bottom-[28px] left-1/2 flex -translate-x-1/2 flex-col items-center">
-              <p className="font-['Pretendard_Variable',sans-serif] text-[20px] font-medium leading-[50px] text-black">
+          <section className="relative mx-auto flex min-h-full max-w-[402px] snap-start flex-col items-center justify-center px-[17px]">
+            <div
+              className={`flex flex-col items-center transition-[opacity,transform] duration-400 ${
+                isTransitioning
+                  ? "pointer-events-none -translate-y-3 opacity-0"
+                  : "translate-y-0 opacity-100"
+              }`}
+            >
+              <ChungwoonEmblem className="h-[169px] w-[242px] object-contain text-[#364153]" />
+              <p className="mt-[14px] font-['Pretendard_Variable',sans-serif] text-[20px] font-medium leading-[34px] text-black">
                 제52대 총학생회 청운
               </p>
+            </div>
+
+            <div
+              className={`absolute bottom-[24px] left-1/2 z-10 flex -translate-x-1/2 flex-col items-center transition-opacity duration-300 ${
+                isTransitioning ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              <p className="text-[12px] font-medium tracking-[0.1px] text-[#4b5565]">
+                아래로 스와이프해 홈으로 이동
+              </p>
+              <div className="mt-[6px] flex flex-col items-center text-[#4b5565]">
+                <svg
+                  viewBox="0 0 20 20"
+                  className="onboarding-chevron h-[14px] w-[14px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 7.5L10 12.5L15 7.5"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <svg
+                  viewBox="0 0 20 20"
+                  className="onboarding-chevron h-[14px] w-[14px]"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 7.5L10 12.5L15 7.5"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
             </div>
           </section>
 
           {/* Home */}
-          <section className="pb-[80px] pt-[70px]">
+          <section className="snap-start pb-[80px] pt-[70px]">
             <div className="mx-auto flex max-w-[402px] flex-col items-center px-[17px] text-center">
               <ChungwoonEmblem className="h-[143px] w-[212px] object-contain text-[#364153]" />
               <p className="mt-[6px] font-['Pretendard_Variable',sans-serif] text-[20px] font-medium leading-[50px] text-black">
