@@ -95,7 +95,9 @@ function App() {
   }, []);
 
   const getHomeSectionTop = (el: HTMLDivElement) => {
-    return homeSectionRef.current?.offsetTop ?? el.clientHeight;
+    const maxScrollTop = Math.max(0, el.scrollHeight - el.clientHeight);
+    const homeTop = homeSectionRef.current?.offsetTop ?? el.clientHeight;
+    return Math.min(homeTop, maxScrollTop);
   };
 
   const scheduleOnboardingFinish = (delayMs: number) => {
@@ -115,10 +117,12 @@ function App() {
     }
 
     const startTop = el.scrollTop;
-    const distance = targetTop - startTop;
+    const maxScrollTop = Math.max(0, el.scrollHeight - el.clientHeight);
+    const safeTargetTop = Math.min(Math.max(targetTop, 0), maxScrollTop);
+    const distance = safeTargetTop - startTop;
 
     if (Math.abs(distance) < 1) {
-      el.scrollTop = targetTop;
+      el.scrollTop = safeTargetTop;
       return;
     }
 
@@ -164,11 +168,8 @@ function App() {
     if (e.deltaY <= 0) {
       return;
     }
-    // 온보딩 최상단에서만 트리거
-    if ((scrollRef.current?.scrollTop ?? 0) < 10) {
-      e.preventDefault();
-      goToHome();
-    }
+    e.preventDefault();
+    goToHome();
   };
 
   const handleTouchStart: React.TouchEventHandler<HTMLDivElement> = (e) => {
@@ -188,7 +189,7 @@ function App() {
     }
 
     const delta = startY - endY; // 위로 스와이프(=아래로 스크롤)면 양수
-    if (delta > 36 && (scrollRef.current?.scrollTop ?? 0) < 24) {
+    if (delta > 20) {
       goToHome();
     }
   };
@@ -199,11 +200,9 @@ function App() {
     }
 
     const el = e.currentTarget;
-    const homeTop = getHomeSectionTop(el);
-    // 사용자가 직접 충분히 스크롤한 경우 자연스럽게 온보딩 종료
-    if (el.scrollTop >= homeTop - 24) {
-      setIsTransitioning(true);
-      scheduleOnboardingFinish(80);
+    // 브라우저별 터치/스냅 차이를 줄이기 위해, 조금만 아래로 스크롤돼도 홈 전환
+    if (el.scrollTop > 12) {
+      goToHome();
     }
   };
 
@@ -212,7 +211,7 @@ function App() {
       {showOnboarding ? (
         <div
           ref={scrollRef}
-          className={`scrollbar-hide flex-1 snap-y snap-proximity overflow-y-auto overscroll-contain ${isTransitioning ? "pointer-events-none" : ""}`}
+          className={`scrollbar-hide flex-1 overflow-y-auto overscroll-contain touch-pan-y ${isTransitioning ? "pointer-events-none" : ""}`}
           onScroll={handleOnboardingScroll}
           onWheelCapture={handleWheel}
           onTouchStart={handleTouchStart}
@@ -277,7 +276,7 @@ function App() {
           </section>
 
           {/* Home */}
-          <section ref={homeSectionRef} className="snap-start pb-[80px] pt-[70px]">
+          <section ref={homeSectionRef} className="snap-start min-h-full pb-[80px] pt-[70px]">
             <div className="mx-auto flex max-w-[402px] flex-col items-center px-[17px] text-center">
               <ChungwoonEmblem className="h-[143px] w-[212px] object-contain text-[#364153]" />
               <p className="mt-[6px] font-['Pretendard_Variable',sans-serif] text-[20px] font-medium leading-[50px] text-black">
