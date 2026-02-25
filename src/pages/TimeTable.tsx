@@ -165,12 +165,12 @@ const TimeTable = () => {
             onClick={() => setSelectedItem(null)}
           />
           <div
-            className="relative z-10 h-[543px] w-full max-w-[360px] overflow-hidden rounded-[16px] border border-[rgba(229,231,235,0.5)] bg-white shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]"
+            className="relative z-10 flex h-[543px] max-h-[calc(100dvh-40px)] w-full max-w-[360px] flex-col overflow-hidden rounded-[16px] border border-[rgba(229,231,235,0.5)] bg-white shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]"
             role="dialog"
             aria-modal="true"
           >
             <div
-              className="relative z-10 flex h-[142px] flex-col gap-[4px] px-[16px] py-[16px]"
+              className="relative z-10 flex flex-col gap-[4px] px-[16px] py-[16px]"
               style={{
                 background:
                   activeDetail.day.id === "day1"
@@ -217,7 +217,7 @@ const TimeTable = () => {
               </div>
             </div>
 
-            <div className="-mt-px flex h-[401px] flex-col gap-[16px] overflow-y-auto px-[24px] py-[20px] text-[#364153]">
+            <div className="-mt-px flex flex-1 flex-col gap-[16px] overflow-y-auto px-[24px] py-[20px] text-[#364153]">
               <div className="flex items-center gap-[8px] text-[#4a5565]">
                 <svg
                   viewBox="0 0 24 24"
@@ -244,7 +244,9 @@ const TimeTable = () => {
 
               <div className="text-[16px] leading-[26px] tracking-[-0.3125px]">
                 {activeDetail.item.detail ? (
-                  <p>{activeDetail.item.detail}</p>
+                  <p className="whitespace-pre-wrap break-words">
+                    {activeDetail.item.detail}
+                  </p>
                 ) : (
                   <p className="text-[#6a7282]">
                     상세 내용이 아직 등록되지 않았어요.
