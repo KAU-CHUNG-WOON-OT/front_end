@@ -1,3 +1,6 @@
+import notice1 from "../assets/notice_copyright.png";
+import notice2 from "../assets/notice_scholarship.png";
+
 export type NoticeCategory = "전체" | "장소" | "흡연" | "기타";
 
 export type NoticeItem = {
@@ -5,34 +8,22 @@ export type NoticeItem = {
   title: string;
   date?: string;
   dateTime?: string;
-  content: string;
+  content?: string;
+  image?: string;
   category: NoticeCategory;
 };
 
 export const notices: NoticeItem[] = [
   {
     id: 1,
-    title: "단과대학 슈퍼패스 공지",
-    content:
-      "가나다라마바사 공지사항입니다. 여기는 공지 내용들이 들어갈 예정입니다.\n필요하면 사진이 들어갈 수도 있게도 하고자 합니다.",
-    category: "장소",
-  },
-  {
-    id: 2,
-    title: "공지 제목",
-    content: "공지 내용이 들어갈 예정입니다.",
-    category: "흡연",
-  },
-  {
-    id: 3,
-    title: "공지 제목",
-    content: "공지 내용이 들어갈 예정입니다.",
+    title: "대학교재 불법복제 근절 및 저작권 보호 안내",
+    image: notice1,
     category: "기타",
   },
   {
-    id: 4,
-    title: "공지 제목",
-    content: "공지 내용이 들어갈 예정입니다.",
-    category: "장소",
+    id: 2,
+    title: "교내외 장학금 신청은 어디에서?",
+    image: notice2,
+    category: "기타",
   },
 ];
