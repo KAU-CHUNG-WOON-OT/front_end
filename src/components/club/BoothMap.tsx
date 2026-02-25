@@ -67,6 +67,11 @@ const BoothMap = ({ onClick }: BoothMapProps) => {
         ))}
       </div>
 
+      <div className="text-[13px] text-gray-700 flex items-center gap-1.5">
+        <span>📍</span>
+        <span>그랜드볼룸 | 3월 1일 9:30~12:30</span>
+      </div>
+
     </div>
   );
 };
