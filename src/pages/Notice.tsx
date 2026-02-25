@@ -2,7 +2,7 @@ import { useMemo, useState, useRef } from "react";
 import emblemRectangle from "../assets/emblem_rectangle.svg";
 import { notices, type NoticeCategory } from "../data/notice";
 
-const filterOptions: NoticeCategory[] = ["전체", "장소", "흡연", "기타"];
+const filterOptions: NoticeCategory[] = ["전체", "장소", "흡연", "음주", "기타"];
 
 const Notice = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
