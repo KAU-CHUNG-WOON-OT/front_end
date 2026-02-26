@@ -36,7 +36,7 @@ const Makers = () => {
 
         <div className="grid grid-cols-2 gap-y-8 w-full max-w-[220px] mx-auto">
           <div className="flex flex-col items-center col-span-2">
-            <span className="text-[11px] font-bold text-black mb-1">총괄</span>
+            <span className="text-[11px] font-bold text-black mb-1">총학생회장</span>
             <span className="text-base font-black text-black mb-0.5">홍석담</span>
             <span className="text-[11px] font-medium text-black">경영학부 22</span>
           </div>
