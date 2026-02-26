@@ -2,7 +2,13 @@ import { useMemo, useState, useRef } from "react";
 import emblemRectangle from "../assets/emblem_rectangle.svg";
 import { notices, type NoticeCategory } from "../data/notice";
 
-const filterOptions: NoticeCategory[] = ["전체", "장소", "흡연", "음주", "기타"];
+const filterOptions: NoticeCategory[] = [
+  "전체",
+  "장소",
+  "흡연",
+  "음주",
+  "기타",
+];
 
 const Notice = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -99,7 +105,7 @@ const Notice = () => {
             className="absolute inset-0"
             onClick={() => setSelectedNoticeId(null)}
           />
-          <div className="relative z-10 flex h-[min(600px,calc(100dvh-72px))] w-full max-w-[352px] flex-col rounded-[25px] border border-white/50 bg-white/90 p-[20px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] backdrop-blur-[20px]">
+          <div className="relative z-10 flex h-[min(570px,calc(100dvh-72px))] w-full max-w-[352px] flex-col rounded-[25px] border border-white/50 bg-white/90 p-[20px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] backdrop-blur-[20px]">
             <div className="shrink-0 rounded-[14px] bg-[linear-gradient(90deg,#afe6ff_0%,#ffffff_100%)] px-[16px] py-[12px]">
               <div className="flex items-center gap-[12px]">
                 <img
