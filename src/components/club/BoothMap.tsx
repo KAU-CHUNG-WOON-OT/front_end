@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
-import booth1 from "../../assets/booth1.png";
-import booth2 from "../../assets/booth2.png";
+import booth1 from "../../assets/booth1.jpg";
+import booth2 from "../../assets/booth2.jpg";
 
 interface BoothMapProps {
   onClick: (imageSrc: string) => void;
