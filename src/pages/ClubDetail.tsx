@@ -1,11 +1,13 @@
 import { useState, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom"; // 💡 useLocation 추가
 import { FiChevronLeft } from "react-icons/fi";
 import { clubs } from "../data/clubs";
 
 const ClubDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  
   const [currentImgIndex, setCurrentImgIndex] = useState(0); 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -27,9 +29,9 @@ const ClubDetail = () => {
     }
   };
 
-  // 뒤로가기 핸들러: 이동 시 현재 카테고리를 state로 함께 넘겨줌
   const handleGoBack = () => {
-    navigate("/club", { state: { category: club.category } });
+    const returnCategory = location.state?.fromCategory || club.category;
+    navigate("/club", { state: { category: returnCategory } });
   };
 
   return (
