@@ -13,7 +13,6 @@ const Club = () => {
   const navigate = useNavigate();
   const location = useLocation(); 
 
-  // 전달받은 state가 있으면 해당 카테고리를, 없으면 "전체"를 초기값으로 설정
   const initialCategory = location.state?.category || "전체";
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchTerm, setSearchTerm] = useState("");
@@ -102,7 +101,8 @@ const Club = () => {
               <ClubCard 
                 key={club.id} 
                 club={club} 
-                onClick={() => navigate(`/club/${club.id}`)} 
+                // 💡 수정됨: 상세 페이지로 넘어갈 때, '현재 보고 있는 탭' 정보를 함께 보냅니다.
+                onClick={() => navigate(`/club/${club.id}`, { state: { fromCategory: selectedCategory } })} 
               />
             ))}
             {filteredClubs.length === 0 && (
