@@ -1,5 +1,7 @@
 import notice1 from "../assets/notice_copyright.png";
 import notice2 from "../assets/notice_scholarship.png";
+import notice3 from "../assets/notice_smoke.png";
+import notice4 from "../assets/notice_drink.png";
 
 export type NoticeCategory = "전체" | "장소" | "흡연" | "음주" | "기타";
 
@@ -48,6 +50,22 @@ export const notices: NoticeItem[] = [
     content:
       "안녕하세요.\n새내기배움터 운영과 관련하여 편의점 이용사항을 안내드립니다.\n\n2일차 자유시간에는 통제 없이 모든 참가자가 편의점을 이용할 수 있습니다.\n\n그 외 모든 시간대에는 슈퍼패스 소지자에 한해 편의점 이용이 가능합니다.\n\n원활한 행사 운영과 안전 관리를 위해 현장 스태프의 안내에 적극 협조해 주시기 바랍니다.\n\n참가자 여러분의 양해와 협조 부탁드립니다.\n감사합니다.",
     category: "장소",
+  },
+  {
+    id: 8,
+    title: "흡연은 지정된 구역에서만 가능합니다.",
+    image: notice3,
+    content:
+      "자원봉사자 또는 학부(과) 학생회 및 총학생회의 통제를 따라 흡연 구역 내에서 흡연해주시기 바라며, 그 외 지역에서의 흡연은 엄격히 금지됩니다. 자세한 내용은 아래 사진 참고 부탁드립니다.",
+    category: "흡연",
+  },
+  {
+    id: 9,
+    title: "No 술 스티커 안내",
+    image: notice4,
+    content:
+      "새내기배움터 참여자 중 위 사진과 같은 NO 술 스티커를 붙인 참여자가 있습니다. 해당 인원들에 대한 음주 강요 등의 행위를 자제해주시기 바라며, 모두에게 즐거운 새내기배움터가 될 수 있도록 배려해주시기 바랍니다.",
+    category: "음주",
   },
   {
     id: 5,
